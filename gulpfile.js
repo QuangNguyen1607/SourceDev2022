@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
+const Fiber = require('fibers');
 const imagemin = require("gulp-imagemin");
 const cssnano = require("cssnano");
 const concat = require("gulp-concat");
@@ -12,6 +13,8 @@ const browsersync = require("browser-sync").create();
 const prefixer = require("autoprefixer");
 var postcss = require("gulp-postcss");
 const cache = require("gulp-cache");
+const cssImport = require('gulp-cssimport');
+const sassUnicode = require('gulp-sass-unicode');
 const del = require("del");
 const plumber = require("gulp-plumber");
 const cleanCSS = require("gulp-clean-css");
@@ -103,24 +106,23 @@ function tailwinCSS() {
 function styles() {
 	return gulp
 		.src(options.styles.src)
-		.pipe(
-			plumber(function (err) {
-				console.log("Styles Task Error");
-				console.log(err);
-				this.emit("end");
-			})
-		)
+		.pipe(concat("main.min.sass"))
+		.pipe(sass.sync({
+			fiber: Fiber
+		}).on('error', sass.logError))
 		.pipe(sass().on("error", sass.logError))
-		.pipe(
-			postcss([
-				prefixer({
-					overrideBrowserslist: ["last 4 version", "IE 10"],
-					cascade: false,
-					stats: ["> 1%, IE 10"],
-				}),
-				cssnano(),
-			])
-		)
+		.pipe(postcss([
+			prefixer({
+				env: ['last 4 version', "IE 9"],
+				cascade: false,
+			}),
+			cssnano(),
+		]))
+		.pipe(rename({
+			basename: 'main',
+			suffix: '.min',
+			extname: '.css'
+		}))
 		.pipe(gulp.dest(options.styles.dest))
 		.pipe(
 			browsersync.reload({
