@@ -21,19 +21,23 @@ const cleanCSS = require("gulp-clean-css");
 const options = {
 	pug: {
 		src: [
-			"app/views/*.pug",
-			"app/views/!blocks/**",
-			"app/views/!layout/**",
+			"src/pages/*.pug",
+			"!src/pages/\_*.pug"
 		],
-		all: "app/views/**/*.pug",
+		all: "src/components/**/*.pug",
 		dest: "dist",
 	},
 	scripts: {
-		src: "app/scripts/**/*.js",
+		src: "src/js/main.js",
 		dest: "dist/scripts",
 	},
 	styles: {
-		src: "app/styles/**/*.scss",
+		src: [
+			"src/components/_core/_**.sass",
+			"src/components/_core/**.sass",
+			"src/components/_global/**.sass",
+			"src/components/**/**.sass",
+		],
 		dest: "dist/styles",
 	},
 	tailwinCSS: {
@@ -41,11 +45,11 @@ const options = {
 		dest: "dist/styles",
 	},
 	images: {
-		src: "app/images/*.+(png|jpeg|jpg|gif|svg)",
+		src: "./src/img/**/**.{svg,png,jpg,speg,gif,jpge,PNG,JPGE,JPG,SVG,GIF,SPEG,mp4}",
 		dest: "dist/images",
 	},
 	fonts: {
-		src: "app/fonts/*",
+		src: "src/fonts/*",
 		dest: "dist/fonts",
 	},
 	browserSync: {

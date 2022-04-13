@@ -1,0 +1,32 @@
+.swiper-button-disabled
+	opacity: 0.4 !important
+.wrap-button-slide
+	display: flex
+	align-items: center
+	justify-content: center
+	&.none-static
+		.btn-prev,.btn-next
+			position: absolute !important
+			top: 50%
+			transform: translateY(-50%)
+	.btn-prev,.btn-next
+		z-index: 9
+		position: static
+		@media (min-width: 1024px)
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+	.btn-prev
+		right: 100%
+		@media (max-width: 1400px)
+			right: 95%
+		&.btn-arrow
+			transform: rotate(180deg) translateY(1px)
+			transform-origin: center
+			@media (min-width: 1024px)
+				transform-origin: top
+				transform: rotate(180deg) translateY(-50%)
+	.btn-next
+		left: 100%
+		@media (max-width: 1400px)
+			left: 95%
