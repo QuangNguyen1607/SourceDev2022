@@ -2,14 +2,11 @@
 	"font": ["src/fonts/**"],
 	"js": [
 		"bower_components/jquery/dist/jquery.min.js",
-		"src/_plugins/mapping.js",
 		"node_modules/swiper/swiper-bundle.min.js",
-		"src/_plugins/Tabslet.js",
-		"bower_components/lazysizes/lazysizes.js",
-		"node_modules/@fancyapps/ui/src/Fancybox/Fancybox.js"
+		"node_modules/@fancyapps/ui/dist/fancybox.umd.js",
+		"node_modules/lozad/dist/lozad.js"
 	],
 	"css": [
-		"src/_plugins/font.css",
 		"node_modules/swiper/swiper-bundle.min.css",
 		"node_modules/@fancyapps/ui/src/Fancybox/Fancybox.scss"
 	]

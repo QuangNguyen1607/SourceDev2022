@@ -1,0 +1,10 @@
+mixin ListLink(classParent, ...links)
+	ul(class=classParent)
+		each link, index in links
+			li(class=index === 0 ? 'active' : '')
+				a(href="")=link
+mixin PugImg(src = './img/1.png')
+	img(data-src=src alt="" class="lozad")
+mixin ButtonPrimary(text='Xem thêm')
+	a.btn.btn-primary(class!=attributes.class href="")
+		span=text

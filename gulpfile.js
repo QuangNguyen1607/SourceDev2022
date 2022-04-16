@@ -1,50 +1,52 @@
 const gulp = require("gulp");
 const pug = require("gulp-pug");
-const sass = require("gulp-sass");
-const Fiber = require('fibers');
-const imagemin = require("gulp-imagemin");
+const sass = require("gulp-sass")(require("sass"));
+const Fiber = require("fibers");
 const cssnano = require("cssnano");
 const concat = require("gulp-concat");
 const uglify = require("gulp-uglify");
 const rename = require("gulp-rename");
 const srcmap = require("gulp-sourcemaps");
 const babel = require("gulp-babel");
+const c = require("ansi-colors");
 const browsersync = require("browser-sync").create();
 const prefixer = require("autoprefixer");
+const clipboard = require("gulp-clipboard");
 var postcss = require("gulp-postcss");
 const cache = require("gulp-cache");
-const cssImport = require('gulp-cssimport');
-const sassUnicode = require('gulp-sass-unicode');
+const cssImport = require("gulp-cssimport");
+const sassUnicode = require("gulp-sass-unicode");
 const del = require("del");
 const plumber = require("gulp-plumber");
 const cleanCSS = require("gulp-clean-css");
-
+const readFileSync = require("graceful-fs").readFileSync;
+sass.compiler = require("dart-sass");
 /* Options
  * ------ */
 const options = {
 	pug: {
-		src: [
-			"src/pages/*.pug",
-			"!src/pages/\_*.pug"
-		],
-		all: "src/components/**/*.pug",
+		src: ["src/views/**/*.pug"],
+		all: "src/**/*.pug",
 		dest: "dist",
 	},
 	scripts: {
 		src: "src/js/main.js",
 		dest: "dist/scripts",
 	},
-	styles: {
+	CoreScripts: {
+		dest: "dist/scripts",
+	},
+	ProcessStyles: {
 		src: [
 			"src/components/_core/_**.sass",
 			"src/components/_core/**.sass",
 			"src/components/_global/**.sass",
-			"src/components/**/**.sass",
+			"src/**/**.sass",
 		],
 		dest: "dist/styles",
 	},
-	tailwinCSS: {
-		src: "app/styles/**/tailwind.css",
+	ProcessTailwinCSS: {
+		src: "src/tailwind/main.css",
 		dest: "dist/styles",
 	},
 	images: {
@@ -64,6 +66,7 @@ const options = {
  * ------------ */
 function browserSync(done) {
 	browsersync.init({
+		notify: true,
 		server: {
 			baseDir: options.browserSync.baseDir,
 		},
@@ -74,14 +77,14 @@ function browserSync(done) {
 
 /* Styles
  * ------ */
-function tailwinCSS() {
+function ProcessTailwinCSS() {
 	return gulp
-		.src(options.tailwinCSS.src)
+		.src(options.ProcessTailwinCSS.src)
 		.pipe(srcmap.init())
 		.pipe(concat("tailwind.min.css"))
 		.pipe(
 			plumber(function (err) {
-				console.log("tailwinCSS Task Error");
+				console.log("ProcessTailwinCSS Task Error");
 				console.log(err);
 				this.emit("end");
 			})
@@ -96,56 +99,115 @@ function tailwinCSS() {
 		)
 		.pipe(srcmap.write("."))
 		.pipe(cleanCSS({ compatibility: "ie8" }))
-		.pipe(gulp.dest(options.tailwinCSS.dest))
+		.pipe(gulp.dest(options.ProcessTailwinCSS.dest))
 		.pipe(
 			browsersync.reload({
 				stream: true,
 			})
 		);
 }
-function styles() {
+function ProcessStyles() {
 	return gulp
-		.src(options.styles.src)
+		.src(options.ProcessStyles.src)
 		.pipe(concat("main.min.sass"))
-		.pipe(sass.sync({
-			fiber: Fiber
-		}).on('error', sass.logError))
+		.pipe(
+			sass
+				.sync({
+					fiber: Fiber,
+				})
+				.on("error", sass.logError)
+		)
+		.pipe(sassUnicode())
+		.pipe(cssImport())
 		.pipe(sass().on("error", sass.logError))
-		.pipe(postcss([
-			prefixer({
-				env: ['last 4 version', "IE 9"],
-				cascade: false,
-			}),
-			cssnano(),
-		]))
-		.pipe(rename({
-			basename: 'main',
-			suffix: '.min',
-			extname: '.css'
-		}))
-		.pipe(gulp.dest(options.styles.dest))
 		.pipe(
-			browsersync.reload({
-				stream: true,
-			})
-		);
-}
-
-/* Scripts
- * ------ */
-
-function scripts() {
-	return gulp
-		.src(options.scripts.src)
+			postcss([
+				prefixer({
+					env: ["last 4 version", "IE 9"],
+					cascade: false,
+				}),
+				cssnano(),
+			])
+		)
 		.pipe(
-			plumber(function (err) {
-				console.log("Scripts Task Error");
-				console.log(err);
-				this.emit("end");
+			rename({
+				basename: "main",
+				suffix: ".min",
+				extname: ".css",
 			})
 		)
-		.pipe(babel())
+		.pipe(gulp.dest(options.ProcessStyles.dest))
+		.pipe(
+			browsersync.reload({
+				stream: true,
+			})
+		);
+}
+function CoreStyles() {
+	let config = JSON.parse(readFileSync("./config.json"));
+	return gulp
+		.src(config.css, {
+			allowEmpty: true,
+		})
+		.pipe(plumber())
+		.pipe(concat("global.min.css"))
+		.pipe(
+			postcss([
+				prefixer({
+					overrideBrowserslist: ["last 4 version", "IE 10"],
+					cascade: false,
+					stats: ["> 1%, IE 10"],
+				}),
+				cssnano(),
+			])
+		)
+		.pipe(gulp.dest("./dist/styles"))
+		.pipe(
+			browsersync.reload({
+				stream: true,
+			})
+		);
+}
+/* Scripts
+ * ------ */
+function CoreScripts() {
+	let config = JSON.parse(readFileSync("./config.json"));
+	return gulp
+		.src(config.js, {
+			allowEmpty: true,
+		})
+		.pipe(concat("global.min.js"))
 		.pipe(uglify())
+		.pipe(
+			rename({
+				basename: "global",
+				suffix: ".min",
+				extname: ".js",
+			})
+		)
+		.pipe(srcmap.write("."))
+		.pipe(gulp.dest(options.CoreScripts.dest))
+		.pipe(
+			browsersync.reload({
+				stream: true,
+			})
+		);
+}
+function ProcessScripts() {
+	return gulp
+		.src(options.scripts.src)
+		.pipe(srcmap.init())
+		.pipe(babel())
+		.pipe(concat("main.min.js"))
+		.pipe(uglify())
+		.pipe(
+			rename({
+				basename: "main",
+				suffix: ".min",
+				extname: ".js",
+			})
+		)
+		.pipe(srcmap.write("."))
 		.pipe(gulp.dest(options.scripts.dest))
 		.pipe(
 			browsersync.reload({
@@ -179,57 +241,74 @@ function ProcessPug() {
 /* Images
  * ------ */
 
-function images() {
+function ProcessImages() {
 	return gulp
 		.src(options.images.src)
-		.pipe(
-			cache(
-				imagemin({
-					interlaced: true,
-				})
-			)
-		)
 		.pipe(gulp.dest(options.images.dest));
 }
 
 /* Fonts
  * ------ */
 
-function fonts() {
+function ProcessFonts() {
 	return gulp.src(options.fonts.src).pipe(gulp.dest(options.fonts.dest));
 }
 
 /* Clean up
  * ------ */
 
-async function clean() {
+async function ProcessClean() {
 	return Promise.resolve(del.sync("dist"));
 }
 
 function watchFiles() {
-	gulp.watch(options.pug.all, gulp.series(ProcessPug, tailwinCSS));
-	gulp.watch(options.styles.src, styles);
-	gulp.watch(options.tailwinCSS.src, tailwinCSS);
-	gulp.watch(options.scripts.src, scripts);
-	gulp.watch(options.images.src, images);
-	gulp.watch(options.fonts.src, fonts);
+	gulp.watch(options.pug.all, gulp.series(ProcessPug, ProcessTailwinCSS));
+	gulp.watch(options.pug.src, ProcessPug);
+	gulp.watch(options.ProcessStyles.src, ProcessStyles);
+	gulp.watch(options.ProcessTailwinCSS.src, ProcessTailwinCSS);
+	gulp.watch(options.scripts.src, ProcessScripts);
+	gulp.watch("./config.json", gulp.series(CoreScripts, CoreStyles));
+	gulp.watch(options.images.src, ProcessImages);
+	gulp.watch(options.fonts.src, ProcessFonts);
 }
-
+// -------------------------------------
+//   End Message
+// -------------------------------------
+const end = done => {
+	console.log(" ");
+	console.log(c.green("--------------------------------------"));
+	console.log(c.green.bold.underline("🚚 Source Build Done !!"));
+	console.log(c.green("--------------------------------------"));
+	console.log(" ");
+	done();
+};
 /* Build
  * ------ */
-const build = gulp.series(
-	clean,
-	gulp.parallel(styles, ProcessPug, scripts, images, fonts, tailwinCSS)
+const ProcessBuildSource = gulp.series(
+	ProcessClean,
+	gulp.parallel(
+		ProcessPug,
+		ProcessTailwinCSS,
+		CoreStyles,
+		ProcessStyles,
+		CoreScripts,
+		ProcessScripts,
+		ProcessImages,
+		ProcessFonts
+	),
+	end
 );
 const watch = gulp.parallel(watchFiles, browserSync);
 // export tasks
-exports.styles = styles;
-exports.tailwinCSS = tailwinCSS;
+exports.CoreStyles = CoreStyles;
+exports.ProcessStyles = ProcessStyles;
+exports.ProcessTailwinCSS = ProcessTailwinCSS;
 exports.ProcessPug = ProcessPug;
-exports.scripts = scripts;
-exports.images = images;
-exports.fonts = fonts;
-exports.clean = clean;
-exports.build = build;
+exports.CoreScripts = CoreScripts;
+exports.scripts = ProcessScripts;
+exports.images = ProcessImages;
+exports.fonts = ProcessFonts;
+exports.clean = ProcessClean;
+exports.build = ProcessBuildSource;
 exports.watch = watch;
-exports.default = build;
+exports.default = ProcessBuildSource;
