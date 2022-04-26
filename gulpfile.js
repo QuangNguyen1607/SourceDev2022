@@ -53,6 +53,10 @@ const options = {
 		src: "./src/img/**/**.{svg,png,jpg,speg,gif,jpge,PNG,JPGE,JPG,SVG,GIF,SPEG,mp4}",
 		dest: "dist/images",
 	},
+	favicon: {
+		src: "src/favicon.ico",
+		dest: "dist",
+	},
 	fonts: {
 		src: "src/fonts/*",
 		dest: "dist/fonts",
@@ -242,9 +246,7 @@ function ProcessPug() {
  * ------ */
 
 function ProcessImages() {
-	return gulp
-		.src(options.images.src)
-		.pipe(gulp.dest(options.images.dest));
+	return gulp.src(options.images.src).pipe(gulp.dest(options.images.dest));
 }
 
 /* Fonts
@@ -252,6 +254,16 @@ function ProcessImages() {
 
 function ProcessFonts() {
 	return gulp.src(options.fonts.src).pipe(gulp.dest(options.fonts.dest));
+}
+/* Fonts
+ * ------ */
+
+function ProcessFavicon() {
+	return gulp
+		.src(options.favicon.src, {
+			allowEmpty: true,
+		})
+		.pipe(gulp.dest(options.favicon.dest));
 }
 
 /* Clean up
@@ -270,6 +282,7 @@ function watchFiles() {
 	gulp.watch("./config.json", gulp.series(CoreScripts, CoreStyles));
 	gulp.watch(options.images.src, ProcessImages);
 	gulp.watch(options.fonts.src, ProcessFonts);
+	gulp.watch(options.favicon.src, ProcessFavicon);
 }
 // -------------------------------------
 //   End Message
@@ -294,6 +307,7 @@ const ProcessBuildSource = gulp.series(
 		CoreScripts,
 		ProcessScripts,
 		ProcessImages,
+		ProcessFavicon,
 		ProcessFonts
 	),
 	end
@@ -307,6 +321,7 @@ exports.ProcessPug = ProcessPug;
 exports.CoreScripts = CoreScripts;
 exports.scripts = ProcessScripts;
 exports.images = ProcessImages;
+exports.favicon = ProcessImages;
 exports.fonts = ProcessFonts;
 exports.clean = ProcessClean;
 exports.build = ProcessBuildSource;
