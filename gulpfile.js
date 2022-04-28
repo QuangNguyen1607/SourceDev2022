@@ -101,8 +101,8 @@ function ProcessTailwinCSS() {
 				extname: ".css",
 			})
 		)
-		.pipe(srcmap.write("."))
 		.pipe(cleanCSS({ compatibility: "ie8" }))
+		.pipe(srcmap.write("."))
 		.pipe(gulp.dest(options.ProcessTailwinCSS.dest))
 		.pipe(
 			browsersync.reload({
@@ -113,6 +113,7 @@ function ProcessTailwinCSS() {
 function ProcessStyles() {
 	return gulp
 		.src(options.ProcessStyles.src)
+		.pipe(srcmap.init())
 		.pipe(concat("main.min.sass"))
 		.pipe(
 			sass
@@ -140,6 +141,7 @@ function ProcessStyles() {
 				extname: ".css",
 			})
 		)
+		.pipe(srcmap.write("."))
 		.pipe(gulp.dest(options.ProcessStyles.dest))
 		.pipe(
 			browsersync.reload({
