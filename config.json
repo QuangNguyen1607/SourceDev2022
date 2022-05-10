@@ -8,6 +8,6 @@
 	],
 	"css": [
 		"node_modules/swiper/swiper-bundle.min.css",
-		"node_modules/@fancyapps/ui/src/Fancybox/Fancybox.scss"
+		"node_modules/@fancyapps/ui/dist/fancybox.css"
 	]
 }

@@ -25,7 +25,7 @@ sass.compiler = require("dart-sass");
  * ------ */
 const options = {
 	pug: {
-		src: ["src/views/**/*.pug"],
+		src: ["src/views/*.pug"],
 		all: "src/**/*.pug",
 		dest: "dist",
 	},
