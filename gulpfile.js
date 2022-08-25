@@ -20,6 +20,7 @@ const del = require("del");
 const plumber = require("gulp-plumber");
 const cleanCSS = require("gulp-clean-css");
 const readFileSync = require("graceful-fs").readFileSync;
+const tailwindcss = require("tailwindcss");
 sass.compiler = require("dart-sass");
 /* Options
  * ------ */
@@ -51,7 +52,7 @@ const options = {
 	},
 	images: {
 		src: "./src/img/**/**.{svg,png,jpg,speg,gif,jpge,PNG,JPGE,JPG,SVG,GIF,SPEG,mp4}",
-		dest: "dist/images",
+		dest: "dist/img",
 	},
 	favicon: {
 		src: "src/favicon.ico",
@@ -60,6 +61,10 @@ const options = {
 	fonts: {
 		src: "src/fonts/*",
 		dest: "dist/fonts",
+	},
+	FontawesomeCSS: {
+		src: "src/fontAwesome/**.css",
+		dest: "dist/styles",
 	},
 	browserSync: {
 		baseDir: "dist",
@@ -110,6 +115,33 @@ function ProcessTailwinCSS() {
 			})
 		);
 }
+function ProcessFontAwesomeCSS() {
+	return gulp
+		.src(options.FontawesomeCSS.src)
+		.pipe(srcmap.init())
+		.pipe(
+			plumber(function (err) {
+				console.log("FontawesomeCSS Task Error");
+				console.log(err);
+				this.emit("end");
+			})
+		)
+		.pipe(postcss())
+		.pipe(
+			rename({
+				basename: "fontawesome",
+				suffix: ".min",
+				extname: ".css",
+			})
+		)
+		.pipe(cleanCSS({ compatibility: "ie8" }))
+		.pipe(gulp.dest(options.FontawesomeCSS.dest))
+		.pipe(
+			browsersync.reload({
+				stream: true,
+			})
+		);
+}
 function ProcessStyles() {
 	return gulp
 		.src(options.ProcessStyles.src)
@@ -127,6 +159,7 @@ function ProcessStyles() {
 		.pipe(sass().on("error", sass.logError))
 		.pipe(
 			postcss([
+				tailwindcss("./tailwind.config.js"),
 				prefixer({
 					env: ["last 4 version", "IE 9"],
 					cascade: false,
@@ -276,7 +309,7 @@ async function ProcessClean() {
 }
 
 function watchFiles() {
-	gulp.watch(options.pug.all, gulp.series(ProcessPug, ProcessTailwinCSS));
+	gulp.watch(options.pug.all, gulp.series(ProcessPug, ProcessStyles));
 	gulp.watch(options.pug.src, ProcessPug);
 	gulp.watch(options.ProcessStyles.src, ProcessStyles);
 	gulp.watch(options.ProcessTailwinCSS.src, ProcessTailwinCSS);
@@ -303,9 +336,9 @@ const ProcessBuildSource = gulp.series(
 	ProcessClean,
 	gulp.parallel(
 		ProcessPug,
-		ProcessTailwinCSS,
 		CoreStyles,
 		ProcessStyles,
+		ProcessFontAwesomeCSS,
 		CoreScripts,
 		ProcessScripts,
 		ProcessImages,
@@ -318,7 +351,7 @@ const watch = gulp.parallel(watchFiles, browserSync);
 // export tasks
 exports.CoreStyles = CoreStyles;
 exports.ProcessStyles = ProcessStyles;
-exports.ProcessTailwinCSS = ProcessTailwinCSS;
+exports.ProcessFontAwesomeCSS = ProcessFontAwesomeCSS;
 exports.ProcessPug = ProcessPug;
 exports.CoreScripts = CoreScripts;
 exports.scripts = ProcessScripts;
