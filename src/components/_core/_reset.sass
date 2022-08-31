@@ -7,16 +7,16 @@
 	::-webkit-scrollbar-thumb
 		background: #9a9a9a
 html
-	font-family: 'Source Sans Pro', sans-serif
+	font-family: 'Open Sans', sans-serif
 	line-height: 1.5
 	-webkit-text-size-adjust: 100%
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0)
 body
-	font-family: 'Source Sans Pro', sans-serif
+	font-family: 'Open Sans', sans-serif
 	font-weight: 400
 	line-height: 1.5
 	background-color: $body
-	color: $text
+	color: #434443
 	margin-top: 0
 	margin-bottom: 0
 body, html
@@ -24,7 +24,12 @@ body, html
 	@media(min-width: 1024px)
 		font-size: 15px
 	@media(min-width: 1280px)
-		font-size: 16px
+		font-size: 1vw
+header
+	font-size: r(16px)
+main
+	padding-top: r(100px)
+	font-size: r(16px)
 *
 	box-sizing: border-box
 	&::before, &::after
@@ -237,7 +242,7 @@ template
 	display: none
 
 [hidden], .d-none, .hidden
-	display: none !important
+	display: none
 
 input, button, a, .button-prev, .button-next, textarea, select
 	&:focus

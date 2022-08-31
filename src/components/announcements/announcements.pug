@@ -1,0 +1,27 @@
+section.section-announcements.section-3(class="py-30px sm:py-50px lg:py-100px")
+	.container
+		.flex.items-center.justify-between.gap-30px.flex-wrap
+			h2.title-40px.whitespace-nowrap Announcements
+			.wrap-filter-main.flex.gap-30px(class="sm:w-auto w-full")
+				-for(i=0;i<2;i++)
+					select.dropdown-filter(class="w-1/2 sm:w-auto min-w-auto sm:min-w-340px px-25px flex items-center border border-[#E6E6E6] rounded-lg h-58px text-20px")
+						option(value="2020") 2020
+						option(value="2021") 2021
+						option(value="2023") 2023
+						option(value="2024") 2024
+		.wrap-item-main.flex.flex-col.gap-50px.mt-40px
+			-for(i=0;i<5;i++)
+				.item-news-main(class="sm:grid sm:grid-cols-[.54fr_1fr] rounded-8px rounded-bl-40px overflow-hidden shadow-[2px_2px_10px_rgba(0,0,0,0.15)] bg-white")
+					.img.zoom-img(class="h-250px sm:h-auto")
+						a(href="")
+							+PugImg()
+					.content.flex.flex-col(class='p-25px lg:py-20px lg:px-50px')
+						.date.flex.items-center.gap-x-5px.mb-20px.text-20px
+							a(href="" class="text-secondary font-bold hover:underline") Article subject
+							span -
+							span March 10th
+						h2.text-28px.text-primary(class="hover:text-secondary transition-all duration-300 font-bold")
+							a(href="") 3 things to compare of nitrile gloves and latex gloves
+						.desc.mt-20px.text-20px.mb-30px
+							p.clamp-3 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ante dui, feugiat quis tempor quis, blandit in enim.Nunc sed est nec libero egestas porta. Nunc pretium viverra justo, aliquet viverra elit gravida nec….
+						a(href="" class="mt-auto text-primary hover:text-secondary transition-all duration-300 text-20px") Read more

@@ -1,0 +1,11 @@
+extends layout/_layout.pug
+
+block var
+	- var title = ''
+	- var bodyClass = ''
+block main
+	include ../components/common/breadcrumb/breadcrumb.pug
+	include ../components/common/banner/banner.pug
+	include ../components/product-details/section-1/section-1.pug
+	include ../components/product-details/section-2/section-2.pug
+	include ../components/product-details/section-3/section-3.pug

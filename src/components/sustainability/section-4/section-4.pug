@@ -1,0 +1,15 @@
+section(class="section-sustainability section-4 xl:py-100px lg:py-50px py-30px")
+	.container
+		h2.text-center.title-40px.mb-40px Gallery: see us in action
+		.relative.wrap-slide-main
+			.swiper
+				.swiper-wrapper
+					-for(i=0;i<7;i++)
+						.swiper-slide
+							.item-logo-main.zoom-img.rounded-lg.overflow-hidden
+								a(href="")
+									+PugImg()
+			.wrap-button-slide
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1
+		.swiper-pagination.pagination-1.static

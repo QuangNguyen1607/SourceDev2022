@@ -4,10 +4,12 @@
 		"bower_components/jquery/dist/jquery.min.js",
 		"node_modules/swiper/swiper-bundle.min.js",
 		"node_modules/@fancyapps/ui/dist/fancybox.umd.js",
+		"bower_components/aos/dist/aos.js",
 		"node_modules/lozad/dist/lozad.js"
 	],
 	"css": [
 		"node_modules/swiper/swiper-bundle.min.css",
-		"node_modules/@fancyapps/ui/dist/fancybox.css"
+		"node_modules/@fancyapps/ui/dist/fancybox.css",
+		"bower_components/aos/dist/aos.css"
 	]
 }

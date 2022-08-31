@@ -5,3 +5,36 @@
 	&[data-loaded="true"]
 		opacity: 1
 		filter: blur(0)
+.overlay
+	position: fixed
+	top: 0
+	left: 0
+	background-color: rgba(0,0,0,.8)
+	z-index: 10
+	width: 100%
+	height: 100%
+	opacity: 0
+	visibility: hidden
+	transition: .3s all ease-in-out
+	pointer-events: none
+	&.active
+		pointer-events: auto
+		opacity: 1
+		visibility: visible
+.icon-video
+	background-image: url('../img/icon/play.svg')
+	width: r(189px)
+	height: r(189px)
+	position: absolute
+	background-size: 100% 100%
+	top: 50%
+	left: 50%
+	transform: translate(-50%,-50%)
+	pointer-events: none
+	@media (max-width: 575.98px)
+		max-width: r(130px)
+.dropdown-filter
+	appearance: none
+	background-image: url('../img/news-event/arrow.svg')
+	background-position: right 20px center
+	background-repeat: no-repeat

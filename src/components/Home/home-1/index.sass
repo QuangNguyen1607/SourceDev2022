@@ -1,0 +1,89 @@
+.section-home-1
+	position: relative
+	.swiper-slide-active
+		.item-banner-main
+			.banner-text
+				h1
+					animation: ani-text 1s .5s ease-in-out both
+				p
+					animation: ani-text 1s .6s ease-in-out both
+				a
+					animation: ani-text 1s .7s ease-in-out both
+	.item-banner-main
+		min-height: r(749px)
+		display: flex
+		background-color: #fff
+		position: relative
+		z-index: 2
+		@media (max-width: 1023.98px)
+			min-height: r(630px)
+		&::before
+			content: ''
+			height: r(274px)
+			pointer-events: none
+			background: linear-gradient(to bottom, #FFFFFF, #0065ad21)
+			width: 100%
+			left: 0
+			bottom: 0
+			z-index: -1
+			position: absolute
+		.banner-text
+			h1
+				animation: ani-text 1s .5s ease-in-out both
+			p
+				animation: ani-text 1s .6s ease-in-out both
+			a
+				animation: ani-text 1s .7s ease-in-out both
+		.banner-text
+			h1
+				font-size: r(50px)
+				margin-bottom: r(42px)
+				line-height: 1.3
+				font-weight: 800
+				@apply text-primary uppercase
+				@media (max-width: 1023.98px)
+					font-size: r(36px)
+					margin-bottom: r(30px)
+				@media (max-width: 575.98px)
+					text-align: center
+					font-size: r(24px)
+					padding: r(40px) 0px r(20px)
+					margin-bottom: r(0px)
+			p
+				font-size: r(20px)
+				@media (max-width: 1023.98px)
+					font-size: r(18px)
+				@media (max-width: 575.98px)
+					text-align: center
+					font-size: r(16px)
+		.btn-read-more
+			@media (max-width: 575.98px)
+				margin: 15px auto 50px
+				display: flex
+				width: fit-content
+	.wrap-button-custom
+		display: flex
+		align-items: center
+		@media (max-width: 1023.98px)
+			display: none
+		@media (max-width: 575.98px)
+			display: flex
+		.btn-prev,.btn-next
+			position: absolute
+			z-index: 9
+			top: 50%
+			cursor: pointer
+			@media (max-width: 575.98px)
+				top: 40%
+		.btn-prev
+			left: r(40px)
+			@media (max-width: 575.98px)
+				left: r(20px)
+		.btn-next
+			right: r(40px)
+			@media (max-width: 575.98px)
+				right: r(20px)
+	.pagination-1
+		@media (max-width: 575.98px)
+			display: none
+

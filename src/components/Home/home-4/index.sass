@@ -1,0 +1,42 @@
+.section-home-4
+	.item-home-4
+		min-height: r(375px)
+		box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1)
+		&.item-home-4
+			margin-top: r(50px)
+		&:nth-child(odd)
+			.content-right
+				@media (min-width: 1024px)
+					padding-right: r(80px)
+					padding-left: r(30px)
+				@media (min-width: 768px)
+					padding-right: r(40px)
+		&:nth-child(even)
+			border-radius: r(8px) r(30px) r(8px) r(8px)
+			.content-right
+				@media (min-width: 1024px)
+					padding-left: r(78px)
+					padding-right: r(30px)
+				@media (min-width: 768px)
+					padding-left: r(40px)
+			> .flex
+				flex-direction: row-reverse
+		.desc
+			p + p
+				margin-top: r(43px)
+		.content-right
+			@media (max-width: 575.98px)
+				padding: 0 r(20px)
+		.wrap-img
+			display: flex
+			align-items: center
+			justify-content: center
+			@media (min-width: 768px)
+				padding-right: r(20px)
+			@media (max-width: 575.98px)
+				margin-bottom: r(20px)
+				padding: 0 r(20px)
+			img
+				max-height: 100%
+				max-width: 100%
+				object-fit: contain

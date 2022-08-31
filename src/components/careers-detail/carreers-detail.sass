@@ -1,0 +1,27 @@
+.section-careers-detail
+	.wrap-form-main
+		.wrap-form
+			.form-group
+				input,textarea
+					transition: .3s all  ease-in-out
+					&:focus
+						border: 1px solid $main
+				input
+					width: 100%
+					border: r(1px) solid #E6E6E6
+					border-radius: r(8px)
+					padding: 0px r(18px)
+					height: r(58px)
+					font-size: r(20px)
+				textarea
+					width: 100%
+					border: r(1px) solid #E6E6E6
+					border-radius: r(8px)
+					padding: r(18px) r(18px)
+					height: r(116px)
+					font-size: r(20px)
+			.button-submit
+				input
+					min-width: r(200px)
+					@apply bg-primary text-white text-20px flex items-center h-50px text-center rounded-lg justify-center hover:bg-secondary transition-all duration-300
+

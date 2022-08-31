@@ -1,7 +1,188 @@
-.header-main
-	background-color: red
-	h3
-		color: $main
 header
-	background-color: red
-	font-size: 100px
+	border: r(1px) solid #707070
+	border-bottom: r(2px) solid #707070
+	height: r(100px)
+	position: fixed
+	top: 0
+	left: 0
+	background-color: #fff
+	width: 100%
+	z-index: 99
+	.header-menu
+		margin-left: auto
+		@media (max-width: 1279.98px)
+			display: none
+		li.menu-item-has-children
+			& > a
+				display: flex
+				align-items: center
+				&::after
+					content: '\f107'
+					font-family: "Font Awesome 5 Pro"
+					display: inline-block
+					margin-left: r(12px)
+					font-size: r(16px)
+		& > ul
+			display: flex
+			height: 100%
+			& > li
+				position: relative
+				display: flex
+				align-items: center
+				&.many-product
+					position: static
+					&>.sub-menu
+						width: 100%
+						display: flex
+						justify-content: center
+						min-height: r(270px)
+						padding: r(30px) 0px
+						color: white
+						padding-left: r(150px)
+						@apply bg-primary border-t border-white
+						&>li
+							border-top: 0px
+							min-width: r(300px)
+							&>.sub-menu
+								margin-top: r(5px)
+								li > a
+									font-size: r(20px)
+									padding: r(8px) r(20px)
+									display: block
+									+hover-underline(95%, white)
+							&>a
+								background-color: $main !important
+								font-weight: bold
+								padding: 0
+								font-size: r(20px)
+				&:hover
+					> a
+						@apply text-white bg-primary
+					ul.sub-menu
+						opacity: 1
+						visibility: visible
+				& > a
+					font-size: r(20px)
+					transition: .3s all ease-in-out
+					display: flex
+					align-items: center
+					justify-content: center
+					height: 100%
+					padding: 0 r(28px)
+				&>.sub-menu
+					position: absolute
+					top: 100%
+					left: 0
+					opacity: 0
+					transition: .2s all ease-in-out
+					visibility: hidden
+					& > li
+						min-width: r(249px)
+						@apply border-t border-white
+					& > li > a
+						@apply bg-primary px-4 py-3 text-white block whitespace-nowrap hover:bg-primary-dark transition-all
+	.header-search
+		@media (max-width: 1279.98px)
+			display: none
+		.input-search
+			opacity: 0
+			visibility: hidden
+			transition: .3s all ease-in-out
+			&.active
+				opacity: 1
+				visibility: visible
+	.header-language
+		@media (max-width: 1279.98px)
+			display: none
+	.header-hambuger
+		width: 50px
+		height: auto
+		margin-top: auto
+		margin-bottom: auto
+		margin-left: auto
+		&.active
+			span
+				&:first-child
+					transform: translateY(14px) rotate(45deg)
+				&:nth-child(2)
+					transform: scaleX(0)
+				&:last-child
+					transform: translateY(-14px) rotate(-45deg)
+		span
+			display: block
+			width: 100%
+			height: 7px
+			border-radius: 5px
+			transition: all .5s ease
+			&+span
+				margin-top: 7px
+			@apply bg-primary
+	.header-mobile-pane
+		position: fixed
+		left: 0
+		top: r(100px)
+		background-color: #fff
+		width: r(350px)
+		height: calc( 100vh - 5.2083333rem )
+		overflow: auto
+		padding: r(15px)
+		transform: translateX(-100%)
+		transition: .3s all  ease-in-out
+		&.active
+			transform: none
+		.input-search
+			display: flex
+		.header-menu
+			display: block
+			margin-top: r(15px)
+			> ul
+				display: block
+				li.menu-item-has-children
+					&>a
+						display: flex
+						justify-content: space-between
+				> li
+					display: block
+					background-color: #f1f1f1
+					border: 1px solid white
+					&.active
+						& > a
+							@apply bg-primary text-white
+						& > a::after
+							transform: rotate(180deg)
+							color: white
+					&>ul.sub-menu
+						position: static
+						opacity: 1
+						visibility: visible
+						display: none
+						transition: none
+						min-height: auto
+						padding: 0
+						li > a
+							background-color: #e8e8e8 !important
+							color: $main
+							padding: r(15px)
+							font-size: r(16px)
+							font-weight: 400
+						li.menu-item-has-children
+							&.active > a::after
+								transform: rotate(180deg)
+							> a
+								background-color: #dbdbdb !important
+								&::after
+									font-size: r(20px)
+							&>.sub-menu
+								margin-top: 0
+								> li > a
+									font-size: r(16px)
+									padding: r(15px)
+					> a
+						display: flex
+						width: 100%
+						padding: r(15px)
+						&::after
+							font-size: r(22px)
+							transition: .3s all  ease-in-out
+
+

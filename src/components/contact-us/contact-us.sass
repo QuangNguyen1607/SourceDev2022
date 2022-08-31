@@ -1,0 +1,39 @@
+.item-tab-contact
+	border-width: r(3px)
+	&.active
+		@apply bg-primary text-white border-primary
+.section-contact-us
+	.form-group
+		input,textarea
+			transition: .3s all ease-in-out
+			&:focus
+				border: 1px solid $main
+		input,select
+			width: 100%
+			border: r(1px) solid #E6E6E6
+			border-radius: r(8px)
+			padding: 0px r(18px)
+			height: r(58px)
+			font-size: r(20px)
+			&::placeholder
+				color: #AEB0B2
+		select
+			color: #AEB0B2
+			appearance: none
+			background-image: url('../img/news-event/arrow.svg')
+			background-position: right r(20px) center
+			background-repeat: no-repeat
+			padding-right: r(40px)
+			option
+				color: #AEB0B2
+		textarea
+			width: 100%
+			border: r(1px) solid #E6E6E6
+			border-radius: r(8px)
+			padding: r(18px) r(18px)
+			height: r(116px)
+			font-size: r(20px)
+	.button-submit
+		input
+			min-width: r(200px)
+			@apply bg-primary text-white text-20px flex items-center h-50px text-center rounded-lg justify-center hover:bg-secondary transition-all duration-300

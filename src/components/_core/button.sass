@@ -1,3 +1,39 @@
 .btn
 	cursor: pointer
 	user-select: none
+	&.btn-sw-1
+		width: r(80px)
+		height: r(80px)
+		display: flex
+		align-items: center
+		justify-content: center
+		border-radius: 50%
+		@apply bg-primary bg-opacity-40 hover:bg-opacity-100 transition-all
+		@media (max-width: 1023.98px)
+			width: r(70px)
+			height: r(70px)
+		@media (max-width: 575.98px)
+			width: r(45px)
+			height: r(45px)
+		&::before
+			content: ''
+			font-family: "Font Awesome 5 Pro"
+			font-size: r(46px)
+			color: white
+			@media (max-width: 575.98px)
+				font-size: r(26px)
+		&.btn-prev
+			&::before
+				content: '\f104'
+		&.btn-next
+			&::before
+				content: '\f105'
+	&.btn-read-more
+		@apply bg-primary text-white px-8 py-3 rounded-lg inline-flex items-center mt-50px transition-all hover:bg-secondary
+		span
+			font-size: r(20px)
+			font-weight: 400
+		em
+			font-size: r(24px)
+			margin-left: r(10px)
+			margin-top: r(1px)

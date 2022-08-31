@@ -1,6 +1,107 @@
-header.bg-black(class='h-[100px]')
-	.container.text-white.flex.items-center.h-full(class='sm:bg-red-500')
-		p Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus consequatur quod reprehenderit voluptatum itaque aliquam odio nihil accusamus pariatur dolorem rem quaerat illo aperiam, hic provident inventore officiis iure molestiae.
-	.gap-5.gap-7.bg-slate-100(class='gap-5')
-.home-3
-	p sadasdasd
+header
+	.container.mx-auto.h-full
+		.flex(class="h-full")
+			.header-logo.flex.items-center.w-208px.flex-shrink-0
+				a.block.w-full.h-full(href="/")
+					img(src="./img/logo.svg", alt="" class="w-full h-full")
+			.header-menu(class="xl:flex xl:items-center")
+				ul
+					li.menu-item-has-children
+						a(href="") About Us
+						ul.sub-menu
+							li
+								a(href="") We are SSG
+							li
+								a(href="") Advancements
+					li.menu-item-has-children
+						a(href="") Sustainability
+						ul.sub-menu
+							li
+								a(href="") Latest Development
+							li
+								a(href="") Environmental
+							li
+								a(href="") Social
+							li
+								a(href="") Governance
+							li
+								a(href="") Other
+					li.many-product.menu-item-has-children
+						a(href="") Products
+						ul.sub-menu
+							li
+								a(href="") Medical Nitrile Gloves
+								ul.sub-menu
+									li
+										a(href="") SSG Classic
+									li
+										a(href="") SSG Moisture Lock
+									li
+										a(href="") SSG Moisturizing
+									li
+										a(href="") SSG Revolution
+							li
+								a(href="") Food Nitrile Gloves
+								ul.sub-menu
+									li
+										a(href="") SSG Culinary
+							li.menu-item-has-children
+								a(href="") Industrial Nitrile Gloves
+								ul.sub-menu
+									li
+										a(href="") SSG Standard
+									li
+										a(href="") SSG Space Clean
+									li
+										a(href="") SSG Heavy Duty
+									li
+										a(href="") SSG Nano
+						li.menu-item-has-children
+							a(href="") Career
+							ul.sub-menu
+								li
+									a(href="") Why S&S Glove
+								li
+									a(href="") Learning & Development
+								li
+									a(href="") Job Vacancies
+								li
+									a(href="") Internship Opportunities
+						li.menu-item-has-children
+							a(href="") News & Event
+							ul.sub-menu
+								li
+									a(href="") News
+								li
+									a(href="") Events
+								li
+									a(href="") Videos
+						li.menu-item-has-children
+							a(href="") Contact Us
+							ul.sub-menu
+								li
+									a(href="") Sales Enquiries
+								li
+									a(href="") Purchasing Contact
+								li
+									a(href="") Human Resource Contact
+								li
+									a(href="") Investor Relations Contact
+			.header-search.flex.relative.items-center(class="md:ml-30px xl:ml-55px")
+				.icon-search.cursor-pointer
+					svg.w-24px.h-24px(xmlns="http://www.w3.org/2000/svg", width="24.228", height="24.228", viewBox="0 0 24.228 24.228")
+						path#Search_icon(data-name="Search icon", d="M1633.968-43.845l-4.835-4.835a10.587,10.587,0,0,0,2.284-6.569A10.664,10.664,0,0,0,1620.765-65.9a10.664,10.664,0,0,0-10.652,10.652A10.664,10.664,0,0,0,1620.765-44.6a10.586,10.586,0,0,0,6.569-2.284l4.835,4.835a1.265,1.265,0,0,0,.9.373,1.267,1.267,0,0,0,.9-.373A1.272,1.272,0,0,0,1633.968-43.845Zm-21.31-11.4a8.116,8.116,0,0,1,8.107-8.108,8.116,8.116,0,0,1,8.107,8.108,8.116,8.116,0,0,1-8.107,8.108A8.116,8.116,0,0,1,1612.658-55.249Z", transform="translate(-1610.113 65.901)", fill="#1a1818")
+				.input-search.flex.items-center.border-gray.top-full.right-50px.bg-white.top-full(class="xl:absolute xl:p-2 xl:h-50px xl:border xl:pl-0 pl-5 border-b border-l border-t")
+					.close.absolute.left-full.bg-primary.flex.items-center.justify-center.text-white.w-50px.h-50px.border-primary.cursor-pointer(class="-top-1px border-[2px] text-3xl transition-all hover:bg-primary-dark xl:flex hidden")
+						em.fal.fa-times
+					input(type="text" class="flex-1")
+					button(class="bg-primary p-4 xl:bg-transparent xl:p-0")
+						svg(xmlns="http://www.w3.org/2000/svg", width="24.228", height="24.228", viewBox="0 0 24.228 24.228")
+							path#Search_icon(data-name="Search icon", d="M1633.968-43.845l-4.835-4.835a10.587,10.587,0,0,0,2.284-6.569A10.664,10.664,0,0,0,1620.765-65.9a10.664,10.664,0,0,0-10.652,10.652A10.664,10.664,0,0,0,1620.765-44.6a10.586,10.586,0,0,0,6.569-2.284l4.835,4.835a1.265,1.265,0,0,0,.9.373,1.267,1.267,0,0,0,.9-.373A1.272,1.272,0,0,0,1633.968-43.845Zm-21.31-11.4a8.116,8.116,0,0,1,8.107-8.108,8.116,8.116,0,0,1,8.107,8.108,8.116,8.116,0,0,1-8.107,8.108A8.116,8.116,0,0,1,1612.658-55.249Z", transform="translate(-1610.113 65.901)", fill="#1a1818", class="fill-white xl:fill-[#1a1818]")
+			.flex.items-center
+				a.header-language.text-white.flex.items-center.justify-center.bg-primary.w-50px.h-50px.rounded-md.ml-34px.transition-all(href="" class="hover:bg-secondary font-bold text-20px") EN
+			.header-hambuger(class="block xl:hidden")
+				span
+				span
+				span
+	.header-mobile-pane
