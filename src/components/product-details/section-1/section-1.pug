@@ -45,5 +45,51 @@ section.section-product-detail.section-1(class="xl:py-100px md:py-50px py-30px")
 								td Notice
 								td One time use
 					.flex.items-center.gap-20px
-						a(href="" class="text-white flex items-center justify-center text-20px font-semibold bg-primary transition-all duration-300 rounded-lg hover:bg-secondary md:min-w-250px w-1/2 sm:w-auto py-2").btn Contact
+						a(href="#popup-contact-form" data-fancybox data-src="#popup-contact-form" class="text-white flex items-center justify-center text-20px font-semibold bg-primary transition-all duration-300 rounded-lg hover:bg-secondary md:min-w-250px w-1/2 sm:w-auto py-2").btn Contact
 						a(href="" class="text-white flex items-center justify-center text-20px font-semibold hover:bg-primary bg-secondary transition-all duration-300 rounded-lg md:min-w-250px w-1/2 sm:w-auto py-2").btn Download PDF
+	.hidden
+		#popup-contact-form
+			.wrap-form.bg-blue-2.py-30px.rounded-lg(class="md:px-45px px-20px w-full")
+				.title-40px.mb-30px Sales contact
+				.section-contact-us.wrap-form(class="flex flex-col sm:grid sm:grid-cols-2 gap-25px")
+					.form-group
+						input(type="text" placeholder="Company Name")
+					.form-group
+						input(type="text" placeholder="First Name")
+					.form-group
+						input(type="text" placeholder="Last Name")
+					.form-group
+						input(type="text" placeholder="Job Title")
+					.form-group
+						input(type="text" placeholder="Address")
+					.form-group
+						input(type="text" placeholder="Zip / Postcode")
+					.form-group
+						input(type="text" placeholder="City")
+					.form-group
+						input(type="text" placeholder="State / Province")
+					.form-group
+						select(name="")
+							option(value="" selected hidden) Country
+							option(value="") Vietnam
+					.form-group
+						select(name="")
+							option(value="" selected hidden) Region
+					.form-group
+						input(type="text" placeholder="Phone Number")
+					.form-group
+						input(type="text" placeholder="Fax Number")
+					.form-group.col-span-2
+						input(type="text" placeholder="Email Address")
+					.form-group
+						select(name="")
+							option(value="Shipping Destination Country" hidden selected) Shipping Destination Country
+					.form-group
+						input(type="text" placeholder="Shipping Destination Region")
+					.form-group.col-span-2
+						input(type="text" placeholder="Other Destination(s)")
+					.form-group.col-span-2
+						textarea(name="", cols="30", rows="10" placeholder="Leave A Message")
+					.button-submit
+						input(type="submit" value="Submit")
+
