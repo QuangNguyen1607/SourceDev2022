@@ -4,18 +4,15 @@ module.exports = {
 		container: {
 			center: true,
 			maxWidth: {
-				DEFAULT: "1rem",
-				sm: "2rem",
-				lg: "4rem",
-				xl: "5rem",
-				"2xl": "6rem",
+				DEFAULT: "15px",
+				sm: "30px",
+				xl: "calc(1260/1920 * 100 * 1rem)",
 			},
 			screens: {
-				sm: "600px",
-				md: "767.9",
-				lg: "1023.67",
-				xl: "1260px",
-				"2xl": "1440px",
+				sm: "640px",
+				md: "768px",
+				lg: "1024px",
+				xl: "calc(1260/1920 * 100 * 1rem)",
 			},
 		},
 		fontSize: {
@@ -70,7 +67,7 @@ module.exports = {
 		},
 		extend: {
 			colors: {
-				primary: "#F73936",
+				primary: "#000054",
 			},
 			fontSize: {
 				"10px": "calc(10/1920 * 100 * 1rem)",
