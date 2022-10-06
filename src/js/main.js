@@ -1,5 +1,17 @@
 $(document).ready(function () {
+	buttonHover();
 });
+/*==================== Mapping Menu ====================*/
+function mappingMenu() {
+	let ww = $(window).width();
+	if (ww < 1024) {
+		$(".header-main-menu .list-menu-main").appendTo(".menu-mobile-main");
+	}
+	$(".section-product-about").appendTo(".page-about-main.section-6");
+	$(".select-sort").appendTo(".wrap-tab-list-select");
+	$(".get-img-search").appendTo(".search-form-main .img");
+	$(".searchbox .wrap-form-subscribe").appendTo(".banner-text-form");
+}
 /*==================== Animation loader  ====================*/
 function animationLoader(e) {
 	$("body").addClass("loaded");
