@@ -1,0 +1,37 @@
+.section-careers.section-2
+	table
+		width: 100%
+		@media (max-width: 575.98px)
+			width: 650px
+		thead
+			tr
+				th
+					font-size: r(28px)
+					padding-bottom: r(45px)
+					@apply text-primary font-extrabold
+					&:nth-child(1)
+						width: 48%
+						@media (max-width: 1279.98px)
+							width: 40%
+						@media (max-width: 1023.98px)
+							width: fit-content
+					&:nth-child(2), &:nth-child(3)
+						text-align: center
+					&:last-child
+						width: 18%
+						padding-left: r(30px)
+		tbody
+			tr
+				td
+					border-right: 1px solid #d0d0d0
+					padding: r(25px) 0px
+					&:nth-child(2), &:nth-child(3)
+						font-size: r(28px)
+						text-align: center
+						@media (max-width: 1023.98px)
+							font-size: r(18px)
+							padding: 0 r(30px) !important
+					&:last-child
+						text-align: right
+						border-right: 0px
+						padding-left: r(30px)

@@ -1,5 +1,34 @@
 .swiper-button-disabled
 	opacity: 0.4 !important
+.swiper-padding
+	margin: -15px
+	.swiper-slide
+		height: auto
+	.swiper
+		padding: 15px
+.swiper-pagination
+	&.static
+		position: static !important
+		margin-top: r(60px)
+		@media (max-width: 1023.98px)
+			&.pagination-1
+				display: none
+	&.pagination-1
+		display: flex
+		align-items: center
+		justify-content: center
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		margin-bottom: r(15px)
+		.swiper-pagination-bullet
+			width: r(6px)
+			height: r(6px)
+			transition: .3s all  ease-in-out
+			&.swiper-pagination-bullet-active
+				@apply bg-primary
+				transform: scale(1.6)
 .wrap-button-slide
 	display: flex
 	align-items: center
@@ -9,17 +38,35 @@
 			position: absolute !important
 			top: 50%
 			transform: translateY(-50%)
+			@media (max-width: 1279.98px)
+				margin: 0 !important
+		.btn-prev
+			@media (max-width: 1023.98px)
+				right: 96%
+			@media (max-width: 575.98px)
+				right: auto
+				left: 0
+		.btn-next
+			@media (max-width: 1023.98px)
+				left: 96%
+			@media (max-width: 575.98px)
+				left: auto
+				right: 0
 	.btn-prev,.btn-next
 		z-index: 9
 		position: static
+		cursor: pointer
+		@media (max-width: 1023.98px)
+			margin: 20px 5px 0px !important
 		@media (min-width: 1024px)
 			position: absolute
 			top: 50%
 			transform: translateY(-50%)
 	.btn-prev
 		right: 100%
+		margin-right: r(60px)
 		@media (max-width: 1400px)
-			right: 95%
+			margin-right: -30px
 		&.btn-arrow
 			transform: rotate(180deg) translateY(1px)
 			transform-origin: center
@@ -28,5 +75,6 @@
 				transform: rotate(180deg) translateY(-50%)
 	.btn-next
 		left: 100%
+		margin-left: r(60px)
 		@media (max-width: 1400px)
-			left: 95%
+			margin-left: -30px

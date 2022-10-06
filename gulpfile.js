@@ -34,6 +34,10 @@ const options = {
 		src: "src/js/main.js",
 		dest: "dist/scripts",
 	},
+	PluginScripts: {
+		src: "./src/_plugins/**/**.{js,css}",
+		dest: "dist/plugins",
+	},
 	CoreScripts: {
 		dest: "dist/scripts",
 	},
@@ -46,8 +50,8 @@ const options = {
 		],
 		dest: "dist/styles",
 	},
-	ProcessTailwinCSS: {
-		src: "src/tailwind/main.css",
+	FontawesomeCSS: {
+		src: "src/fontAwesome/**.css",
 		dest: "dist/styles",
 	},
 	images: {
@@ -61,10 +65,6 @@ const options = {
 	fonts: {
 		src: "src/fonts/*",
 		dest: "dist/fonts",
-	},
-	FontawesomeCSS: {
-		src: "src/fontAwesome/**.css",
-		dest: "dist/styles",
 	},
 	browserSync: {
 		baseDir: "dist",
@@ -90,7 +90,8 @@ function ProcessTailwinCSS() {
 	return gulp
 		.src(options.ProcessTailwinCSS.src)
 		.pipe(srcmap.init())
-		.pipe(concat("tailwind.min.css"))
+		.pipe(sass())
+		.pipe(concat("tailwind.min.sass"))
 		.pipe(
 			plumber(function (err) {
 				console.log("ProcessTailwinCSS Task Error");
@@ -98,7 +99,12 @@ function ProcessTailwinCSS() {
 				this.emit("end");
 			})
 		)
-		.pipe(postcss())
+		.pipe(
+			postcss([
+				tailwindcss("./tailwind.config.js"),
+				require("autoprefixer"),
+			])
+		)
 		.pipe(
 			rename({
 				basename: "tailwind",
@@ -115,10 +121,12 @@ function ProcessTailwinCSS() {
 			})
 		);
 }
+
 function ProcessFontAwesomeCSS() {
 	return gulp
 		.src(options.FontawesomeCSS.src)
 		.pipe(srcmap.init())
+		.pipe(concat("tailwind.min.css"))
 		.pipe(
 			plumber(function (err) {
 				console.log("FontawesomeCSS Task Error");
@@ -238,7 +246,6 @@ function ProcessScripts() {
 		.pipe(srcmap.init())
 		.pipe(babel())
 		.pipe(concat("main.min.js"))
-		.pipe(uglify())
 		.pipe(
 			rename({
 				basename: "main",
@@ -277,6 +284,14 @@ function ProcessPug() {
 		);
 }
 
+/* Process plugin js
+ * ------ */
+function PluginScripts() {
+	return gulp
+		.src(options.PluginScripts.src)
+		.pipe(gulp.dest(options.PluginScripts.dest));
+}
+
 /* Images
  * ------ */
 
@@ -312,7 +327,7 @@ function watchFiles() {
 	gulp.watch(options.pug.all, gulp.series(ProcessPug, ProcessStyles));
 	gulp.watch(options.pug.src, ProcessPug);
 	gulp.watch(options.ProcessStyles.src, ProcessStyles);
-	gulp.watch(options.ProcessTailwinCSS.src, ProcessTailwinCSS);
+	// gulp.watch(options.ProcessTailwinCSS.src, ProcessTailwinCSS);
 	gulp.watch(options.scripts.src, ProcessScripts);
 	gulp.watch("./config.json", gulp.series(CoreScripts, CoreStyles));
 	gulp.watch(options.images.src, ProcessImages);
@@ -336,11 +351,13 @@ const ProcessBuildSource = gulp.series(
 	ProcessClean,
 	gulp.parallel(
 		ProcessPug,
+		// ProcessTailwinCSS,
+		ProcessFontAwesomeCSS,
 		CoreStyles,
 		ProcessStyles,
-		ProcessFontAwesomeCSS,
 		CoreScripts,
 		ProcessScripts,
+		PluginScripts,
 		ProcessImages,
 		ProcessFavicon,
 		ProcessFonts
@@ -355,6 +372,7 @@ exports.ProcessFontAwesomeCSS = ProcessFontAwesomeCSS;
 exports.ProcessPug = ProcessPug;
 exports.CoreScripts = CoreScripts;
 exports.scripts = ProcessScripts;
+exports.PluginScripts = PluginScripts;
 exports.images = ProcessImages;
 exports.favicon = ProcessImages;
 exports.fonts = ProcessFonts;

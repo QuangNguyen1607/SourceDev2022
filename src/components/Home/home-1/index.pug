@@ -1,0 +1,21 @@
+section.section-home-1
+	.swiper
+		.swiper-wrapper
+			-for(i=0;i<5;i++)
+				.swiper-slide
+					.item-banner-main
+						.container
+							.flex.h-full(class="flex-col-reverse md:flex-row")
+								div(class="basis-1/2 flex items-center pr-0 xl:pr-30px")
+									.banner-text
+										h1  TOGETHER WITH S&S GLOVE, WE PREVENT THE SPREAD OF COVID-19
+										p Aware of the concern about health, our founders want to contribute a part to community health. Applying modern machinery and technology, S&S Glove is proud to produce high-quality gloves. More than just a glove company...
+										a(href="").btn.btn-read-more
+											span Read more
+											em.fal.fa-angle-right
+								div(class="basis-1/2 xl:pl-30px flex items-end sm:px-0 px-100px")
+									img(src="./img/homepage/1.png", alt="" class="xl:w-609px")
+		.swiper-pagination.pagination-1
+		.wrap-button-custom
+			.btn.btn-prev.btn-sw-1
+			.btn.btn-next.btn-sw-1

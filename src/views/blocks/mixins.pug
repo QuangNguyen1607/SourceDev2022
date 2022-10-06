@@ -3,8 +3,29 @@ mixin ListLink(classParent, ...links)
 		each link, index in links
 			li(class=index === 0 ? 'active' : '')
 				a(href="")=link
-mixin PugImg(src = './img/1.png')
-	img(data-src=src alt="" class="lozad")
+mixin PugImg(src = './img/1.jpg')
+	img(data-src=src alt="" class!="lozad "+attributes.class)
 mixin ButtonPrimary(text='Xem thêm')
 	a.btn.btn-primary(class!=attributes.class href="")
 		span=text
+mixin LinkProduct(text='Products')
+	.link-products(class!=attributes.class)
+		a.flex.items-center.text-primary.text-20px.leading-none.uppercase.font-semibold.gap-x-3(href="" class="hover:text-secondary transition-all")
+			span=text
+			i.fal.fa-angle-right.text-25px
+mixin SlideLogo(text='Trusted by the best')
+	section.section-slide-logo(class!=attributes.class)
+		.container
+			h2.text-center.title-40px.mb-40px=text
+			.relative.wrap-slide-main
+				.swiper
+					.swiper-wrapper
+						-for(i=0;i<7;i++)
+							.swiper-slide
+								.item-logo-main.zoom-img
+									a(href="")
+										+PugImg()
+				.wrap-button-slide
+					.btn.btn-prev.btn-sw-1
+					.btn.btn-next.btn-sw-1
+			.swiper-pagination.pagination-1.static

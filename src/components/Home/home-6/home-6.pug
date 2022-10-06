@@ -1,0 +1,15 @@
+section.section-slide-logo(class="xl:py-200px md:py-50px py-30px")
+	.container
+		h2.text-center.title-40px.mb-40px(data-aos="fade-up") Trusted by the best
+		.relative.wrap-slide-main(data-aos="fade-up" data-aos-delay="300")
+			.swiper
+				.swiper-wrapper
+					-for(i=0;i<7;i++)
+						.swiper-slide
+							.item-logo-main.zoom-img
+								a(href="")
+									+PugImg()
+			.wrap-button-slide
+				.btn.btn-prev.btn-sw-1
+				.btn.btn-next.btn-sw-1
+		.swiper-pagination.pagination-1.static
