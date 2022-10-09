@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 605.58 204.72">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7d370e;
+      }
+
+      .cls-2 {
+        letter-spacing: 0em;
+      }
+
+      .cls-3 {
+        font-size: 100px;
+      }
+
+      .cls-3, .cls-4 {
+        fill: #762f0b;
+        font-family: SVN-GilroyHeavy, SVN-Gilroy;
+      }
+
+      .cls-4 {
+        font-size: 50px;
+      }
+
+      .cls-5 {
+        letter-spacing: -.05em;
+      }
+    </style>
+  </defs>
+  <g id="Layer_1-2" data-name="Layer 1">
+    <g>
+      <g>
+        <text class="cls-3" transform="translate(176.59 177.02)"><tspan x="0" y="0">Đa Chiều</tspan></text>
+        <text class="cls-4" transform="translate(0 85.18)"><tspan x="0" y="0">Vị </tspan><tspan class="cls-5" x="57.7" y="0">T</tspan><tspan class="cls-2" x="82.4" y="0">rí</tspan></text>
+        <text class="cls-3" transform="translate(129.99 85)"><tspan x="0" y="0">Đắt Giá</tspan></text>
+        <text class="cls-4" transform="translate(1.61 146.9)"><tspan x="0" y="0">Kết Nối</tspan></text>
+      </g>
+      <path class="cls-1" d="M208.97,194.17s-43.6,15.88-101.2-4.24c-3.13-1.09-6.3-2.29-9.5-3.6-2.79-1.15-5.51-2.2-8.16-3.2-14.61-5.51-27.36-8.98-38.25-11.1-4.53-.89-8.74-1.53-12.62-2-21.94-2.64-33.61,.59-34.78,.95,1.33-.61,15.75-6.84,38-7.16,4.11-.06,8.49,.07,13.1,.49,8.72,.79,18.27,2.56,28.43,5.81,4.77,1.52,9.68,3.37,14.71,5.6,.63,.27,1.36,.58,2.19,.92,9.07,3.74,29.25,11.08,55.66,15.16,.38,.06,.76,.12,1.14,.18,15.35,2.29,33.44,2.7,51.28,2.19"/>
+    </g>
+  </g>
+</svg>

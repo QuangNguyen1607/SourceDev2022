@@ -1,0 +1,86 @@
+.section-home-3
+	position: relative
+	z-index: 2
+	&::before
+		content: ''
+		position: absolute
+		right: 0
+		background-position: right center
+		background-repeat: no-repeat
+		background-size: cover
+		opacity: .7
+		top: 0
+		width: 80%
+		height: 100%
+		z-index: -1
+		background-image: url('../img/s3-bg-white.svg')
+	.content-left
+		padding-right: r(85px)
+		.wrap-title
+			.edge-moon
+				position: absolute
+				bottom: 100%
+				right: 18%
+				mix-blend-mode: overlay
+			.edge-cloud
+				position: absolute
+				bottom: 64%
+				position: absolute
+				right: -100px
+				mix-blend-mode: screen
+		.content
+			font-size: r(18px)
+			color: white
+			margin-top: r(20px)
+			line-height: 1.2
+		.wrap-slide
+			height: fit-content
+			margin-top: r(20px)
+			.wrap-slide-swiper
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 0
+					width: 100%
+					height: 100%
+					z-index: 2
+					pointer-events: none
+					background: linear-gradient(90deg,#fed48f 0%,transparent)
+			.item-content
+				display: flex
+				padding: r(20px) 0 0
+				align-items: center
+				flex-direction: row-reverse
+				.number
+					font-family: 'MTD Kawoszeh'
+					font-size: r(120px)
+					line-height: 1
+					position: relative
+					padding-top: 5px
+					@apply text-secondary
+					&::before
+						content: ''
+						background-image: url('../img/icon-quotes_1.svg')
+						display: inline-block
+						background-size: contain
+						height: r(25px)
+						width: r(21px)
+						background-repeat: no-repeat
+						position: absolute
+						top: -8px
+						right: -23px
+				.desc
+					font-size: r(20px)
+					line-height: 1.2
+					margin-left: 8px
+					text-align: left
+					transform: translateY(-9px)
+					@apply text-secondary
+	.content-right
+		width: r(933px)
+		position: absolute
+		top: 39%
+		transform: translateY(-50%)
+		height: r(696px)
+		right: r(-170px)

@@ -1,0 +1,31 @@
+.swiper-slide
+	section.section-home-3.bg-gradient.section-swiper
+		.container.mx-auto.h-full
+			.flex(class="flex-wrap h-full -mx-50px")
+				div(class="w-6/12 px-50px")
+					.content-left.flex.flex-col.justify-center.h-full
+						.wrap-title.relative
+							img(src="./img/s3-moon.png", alt="" class="edge-moon")
+							img(src="./img/s3-cloud.png", alt="" class="edge-cloud")
+							img(src="./img/s3-title_1.png", alt="" class="edge-title")
+						.content.text-justify
+							p Tọa lạc tại trung tâm của thành phố Vĩnh Long, kết nối 2 trục đường chính Phó Cơ Điều (Quốc lộ 53) và Nguyễn Huệ, từ KĐT T&T Tamda cư dân có thể nhanh chóng kết nối với TP.HCM và các tỉnh lân cận thông qua các tuyến giao thông huyết mạch đã hoàn thiện và đồng bộ như: Quốc lộ 53, Quốc lộ 57, Quốc lộ 1A, Quốc lộ 80, cần Mỹ Thuận, phà Đình Khao... Đồng thời cộng hưởng từ hệ tiện ích ngoài khu hoàn hảo, tạo nên một không
+						.wrap-slide
+							.wrap-slide-swiper.relative
+								.swiper(dir="rtl")
+									.swiper-wrapper
+										-for(i=0;i<3;i++)
+											.swiper-slide
+												.item-content
+													.number 6
+													.desc Đến vincom, quảng trường, Vĩnh long
+							.wrap-button-slide-custom.flex.items-center.justify-end.gap-15px
+								.wrap-active-number-slide.border.border-white.rounded-lg.w-fit.text-white.px-15px
+									span.current 3
+									span.seperator /
+									span.total 5
+								.btn.btn-prev.btn-sw-2
+								.btn.btn-next.btn-sw-2
+				div(class="w-6/12 px-50px relative")
+					.content-right.h-full.flex.items-center
+						img(src="./img/s3-map.png", alt="")

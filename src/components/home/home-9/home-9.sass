@@ -1,0 +1,54 @@
+.section-home-9
+	.wrap-slide-main
+		.img
+			height: 100%
+			img
+				width: 100%
+				object-fit: cover
+				height: 100%
+		.wrap-slide
+			height: 70vh
+			.swiper
+				height: calc( 100% - 4.375rem )
+			&::before
+				content: ''
+				background-image: url('../img/s9-line-top_1.png')
+				background-size: contain
+				background-position: top
+				width: 100%
+				display: inline-block
+				background-repeat: no-repeat
+				height: r(50px)
+			&::after
+				content: ''
+				background-image: url('../img/s9-line-bottom.png')
+				background-size: contain
+				background-position: top
+				background-repeat: no-repeat
+				width: 100%
+				display: inline-block
+				height: r(34px)
+				margin-top: r(5px)
+		.wrap-content
+			flex: 1
+			padding: r(40px) r(145px) 0
+			.content-left
+				line-height: 1.25
+			.content-right
+				margin-left: r(30px)
+				column-count: 2
+				column-gap: r(80px)
+				color: #848484
+				position: relative
+				&::before
+					content: ''
+					position: absolute
+					top: 0
+					left: 50%
+					width: 2px
+					height: 100%
+					transform: translateX(-50%)
+					background-color: #acacac
+				p
+					break-inside: avoid
+					line-height: 1.3

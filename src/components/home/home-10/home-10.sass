@@ -1,0 +1,40 @@
+.section-home-10
+	.content-right
+		.swiper
+			height: 100%
+			.img
+				+img-ratio(944/1120)
+				img
+					object-position: bottom
+	.content-left
+		background-image: url('../img/s10-bg-left.png')
+		background-repeat: no-repeat
+		background-position-y: 50px
+		background-size: 100% 100%
+		.wrap-button-slide-custom
+			max-width: 422px
+			width: 100%
+			margin: 0 auto
+			margin-top: r(10px)
+		.desc
+			text-align-last: center
+		.wrap-quotes
+			.swiper
+				&::before
+					content: ''
+					position: absolute
+					left: 0
+					top: 0
+					width: 40%
+					height: 100%
+					z-index: 10
+					background: linear-gradient(90deg, #fff, transparent)
+				&::after
+					content: ''
+					position: absolute
+					right: 0
+					top: 0
+					width: 40%
+					height: 100%
+					z-index: 10
+					background: linear-gradient(270deg, #fff, transparent)

@@ -14,8 +14,8 @@ module.exports = {
 				sm: "600px",
 				md: "767.9",
 				lg: "1023.67",
-				xl: "1260px",
-				"2xl": "1440px",
+				xl: "calc(1260/1920 * 100 * 1rem)",
+				"2xl": "calc(1620/1920 * 100 * 1rem)",
 			},
 		},
 		borderWidth: {
@@ -85,6 +85,10 @@ module.exports = {
 			96: "calc(384/1920*100*1rem)",
 		},
 		extend: {
+			fontFamily: {
+				Gilroy: ["SVN-Gilroy"],
+				Tahoma: ["Tahoma"],
+			},
 			dropShadow: {
 				primary: "0px 0px 0.78125rem rgba(0,0,0,0.1)",
 			},
@@ -130,7 +134,9 @@ module.exports = {
 				"500px": "calc(500/1920*100*1rem)",
 			},
 			colors: {
-				primary: "#F73936",
+				primary: "#FCB813",
+				secondary: "#762F0B",
+				gray: "#848484",
 			},
 			fontSize: {
 				"10px": "calc(10/1920 * 100 * 1rem)",
@@ -140,14 +146,19 @@ module.exports = {
 				"18px": "calc(18/1920 * 100 * 1rem)",
 				"20px": "calc(20/1920 * 100 * 1rem)",
 				"25px": "calc(25/1920 * 100 * 1rem)",
+				"27px": "calc(27/1920 * 100 * 1rem)",
 				"28px": "calc(28/1920 * 100 * 1rem)",
 				"32px": "calc(32/1920 * 100 * 1rem)",
 				"40px": "calc(40/1920 * 100 * 1rem)",
+				"45px": "calc(45/1920 * 100 * 1rem)",
 				"50px": "calc(50/1920 * 100 * 1rem)",
+				"55px": "calc(55/1920 * 100 * 1rem)",
 				"60px": "calc(60/1920 * 100 * 1rem)",
 				"64px": "calc(64/1920 * 100 * 1rem)",
 				"100px": "calc(100/1920 * 100 * 1rem)",
+				"147px": "calc(147/1920 * 100 * 1rem)",
 				"150px": "calc(150/1920 * 100 * 1rem)",
+				"172px": "calc(172/1920 * 100 * 1rem)",
 			},
 			spacing: {
 				"1px": "calc(1/1920 * 100 * 1rem)",

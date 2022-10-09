@@ -1,0 +1,98 @@
+.btn
+	cursor: pointer
+	user-select: none
+	&.btn-view-more
+		position: relative
+		width: fit-content
+		color: white
+		padding: 5px 35px
+		border-radius: 25px
+		margin-left: auto
+		transition: .3s all ease-in-out
+		@apply bg-secondary
+		&:hover
+			transform: scale(1.1)
+		&::after
+			content: ''
+			background-image: url('../img/arrow-right.svg')
+			position: absolute
+			right: 0
+			top: 50%
+			display: inline-block
+			width: 25px
+			height: 21px
+			background-repeat: no-repeat
+			background-size: contain
+			transform: translateY(-50%)
+	&.btn-sw-2
+		width: r(38px)
+		height: r(38px)
+		border-radius: 50%
+		@apply bg-secondary flex items-center justify-center
+		&::before
+			content: ''
+			background-image: url('../img/arrow-right.svg')
+			width: r(15px)
+			height: r(25px)
+			background-repeat: no-repeat
+			background-size: contain
+		&.btn-next
+			&::before
+				transform: translateX(r(4px))
+		&.btn-prev
+			&::before
+				transform: rotate(180deg) translateX(4px)
+				transform-origin: center center
+	&.btn-sw-3
+		&.btn-prev
+			left: r(20px)
+			&::before
+				background-image: url('../img/btn-sw-3-prev.png')
+		&.btn-next
+			right: r(20px)
+			&::before
+				background-image: url('../img/btn-sw-3-next.png')
+		&::before
+			content: ''
+			background-size: contain
+			background-repeat: no-repeat
+			width: r(135px)
+			display: inline-block
+			height: r(135px)
+			border-radius: 50%
+			background-position: center 10px
+	&.btn-sw-4
+		position: relative
+		width: r(112px)
+		height: r(112px)
+		&:hover
+			&::after
+				transform: translate(-50%,-50%) scale(1.1)
+		&::before
+			content: ''
+			background-image: url('../img/btn-sw-4.png')
+			background-size: contain
+			background-repeat: no-repeat
+			width: 100%
+			height: 100%
+			display: inline-block
+			border-radius: 50%
+		&::after
+			content: ''
+			position: absolute
+			top: 50%
+			left: 50%
+			width: r(112px)
+			height: r(112px)
+			transform: translate(-50%,-50%) scale(1)
+			transition: .3s all ease-in-out
+			transform-origin: center center
+			border: 1px solid white
+			width: 100%
+			height: 100%
+			border-radius: 50%
+		&.btn-prev
+			&::before
+				transform: rotate(180deg)
+
+

@@ -1,0 +1,23 @@
+.section-home-7
+	.col-left,.col-right
+		width: 27.5%
+	.col-mid
+		width: 45%
+		max-width: 45%
+		padding: r(56px) r(60px) 0
+	.wrap-custom-slide
+		position: relative
+		&::before
+			content: ''
+			position: absolute
+			left: 50%
+			transform: translateX(-50%)
+			width: r(1px)
+			height: r(150px)
+			background-color: #fff
+		.wrap-active-number-slide
+			position: absolute
+			top: 50%
+			transform: translateY(-50%)
+			right: 100%
+			margin-right: r(40px)

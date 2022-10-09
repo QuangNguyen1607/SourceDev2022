@@ -1,0 +1,30 @@
+header
+	padding: r(54px) 0px
+	z-index: 99
+	display: none
+	nav
+		padding: 0 r(40px)
+		.header-logo
+			width: r(260px)
+			height: r(110px)
+		.header-menu
+			padding-bottom: r(15px)
+			position: relative
+			display: flex
+			align-items: center
+			height: 100%
+			transform: translateY(-14px)
+			ul
+				display: flex
+				gap: r(50px)
+				justify-content: flex-end
+				align-items: center
+				li
+					a
+						@apply text-primary transition-all duration-300 text-20px
+						&:hover
+							@apply text-secondary
+			.line-active
+				position: absolute
+				left: 0
+				bottom: -2px
