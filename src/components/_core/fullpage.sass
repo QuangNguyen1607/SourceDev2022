@@ -1,8 +1,73 @@
 .fullpage-swiper
 	background: linear-gradient(90deg, #FFD68E, #FCCB99, #E68D72)
 	&>.swiper
-		height: 100vh
-		.section-swiper
+		@screen xl
 			height: 100vh
+			.section-swiper
+				height: 100vh
+		&> .swiper-wrapper
+			display: block
+			@screen xl
+				display: flex
 	.container-padding
 		padding: 0 r(50px)
+		@media (max-width: 1023.98px)
+			padding: 0 30px
+		@media (max-width: 575.98px)
+			padding: 0 15px
+.fullpage-slide-thumb
+	position: fixed
+	right: 0
+	top: 50%
+	transform: translateY(-50%)
+	z-index: 999
+	@media (max-width: 1279.98px)
+		display: none
+	.swiper-slide
+		height: 40px !important
+		@for $i from 1 through 13
+			&:nth-child(#{$i})
+				animation: fade-right .5s calc(.5s + .1s * #{$i}) ease-in-out both
+		&.swiper-slide-thumb-active
+			.item-thumb
+				span
+					@apply bg-secondary
+				&::before
+					opacity: 1
+					filter: blur(0)
+					transform: none
+		&:first-child
+			.item-thumb
+				span
+					border-radius: r(20px) 0px 0 0
+					border: 1px solid white
+					border-top: 0
+		&:last-child
+			.item-thumb
+				span
+					border-radius: 0px 0px 0 r(20px)
+					border: 1px solid white
+					border-top: 0
+		.item-thumb
+			height: 100%
+			display: flex
+			justify-content: flex-end
+			@apply items-center gap-15px
+			span
+				height: 100%
+				width: r(50px)
+				display: flex
+				align-items: center
+				justify-content: center
+				border-left: 1px solid white
+				border-bottom: 1px solid white
+				color: white
+				position: relative
+				@apply bg-primary text-base hover:brightness-75 transition-all duration-300 cursor-pointer
+			&::before
+				content: attr(data-title)
+				transform: translateX(20px)
+				opacity: 0
+				filter: blur(15px)
+				transition: .5s all  ease-in-out
+				@apply text-secondary

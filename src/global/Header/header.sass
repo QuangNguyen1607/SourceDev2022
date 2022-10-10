@@ -1,12 +1,28 @@
 header
-	padding: r(54px) 0px
+	padding: r(20px) 0px
 	z-index: 99
-	display: none
+	@media (max-width: 1279.98px)
+		padding: 20px 0px
 	nav
 		padding: 0 r(40px)
+		transition: .3s all  ease-in-out
+		&.hidden-header
+			transform: translateY(-200%)
+		@media (max-width: 1279.98px)
+			flex-direction: column
+		@media (max-width: 1023.98px)
+			flex-direction: row
+			padding: 0 15px
 		.header-logo
 			width: r(260px)
 			height: r(110px)
+			@media (max-width: 1279.98px)
+				max-width: 150px
+				margin-bottom: 15px
+			@media (max-width: 1023.98px)
+				margin-bottom: 0
+				display: flex
+				align-items: center
 		.header-menu
 			padding-bottom: r(15px)
 			position: relative
@@ -14,6 +30,8 @@ header
 			align-items: center
 			height: 100%
 			transform: translateY(-14px)
+			@media (max-width: 1023.98px)
+				display: none
 			ul
 				display: flex
 				gap: r(50px)
@@ -27,4 +45,59 @@ header
 			.line-active
 				position: absolute
 				left: 0
-				bottom: -2px
+				bottom: -5px
+				transition: .3s all  ease-in-out
+				@media (max-width: 1279.98px)
+					max-width: 62px
+.header-mobile
+	position: fixed
+	left: 0
+	top: 0
+	height: 100vh
+	width: 300px
+	z-index: 999
+	background: linear-gradient(90deg, #ffd68eea, #fcca99ec, #e68d72ed)
+	display: flex
+	align-items: center
+	padding: 30px
+	padding-top: 60px
+	transition: .8s all  ease-in-out
+	padding-bottom: 20vh
+	transform: translateX(-100%)
+	@apply border-r-4 border-white
+	&.active
+		transform: none
+	li
+		&+li
+			margin-top: r(20px)
+		&.active
+			a
+				@apply text-secondary
+		a
+			color: white
+			@apply uppercase font-Gilroy font-black text-40px transition-all duration-300
+	@media (min-width: 1024px)
+		display: none
+.header-hambuger
+	width: 50px
+	height: auto
+	margin-top: auto
+	margin-bottom: auto
+	margin-left: auto
+	&.active
+		span
+			&:first-child
+				transform: translateY(14px) rotate(45deg)
+			&:nth-child(2)
+				transform: scaleX(0)
+			&:last-child
+				transform: translateY(-14px) rotate(-45deg)
+	span
+		display: block
+		width: 100%
+		height: 7px
+		border-radius: 5px
+		transition: all .5s ease
+		&+span
+			margin-top: 7px
+		@apply bg-primary

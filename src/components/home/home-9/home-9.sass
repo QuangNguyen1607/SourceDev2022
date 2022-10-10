@@ -1,5 +1,7 @@
 .section-home-9
 	.wrap-slide-main
+		display: flex
+		flex-direction: column
 		.img
 			height: 100%
 			img
@@ -7,9 +9,11 @@
 				object-fit: cover
 				height: 100%
 		.wrap-slide
-			height: 70vh
+			flex: 1
 			.swiper
-				height: calc( 100% - 4.375rem )
+				height: 100%
+				@media (max-width: 1279.98px)
+					height: 400px
 			&::before
 				content: ''
 				background-image: url('../img/s9-line-top_1.png')
@@ -19,6 +23,8 @@
 				display: inline-block
 				background-repeat: no-repeat
 				height: r(50px)
+				@media (max-width: 1279.98px)
+					height: 27px
 			&::after
 				content: ''
 				background-image: url('../img/s9-line-bottom.png')
@@ -30,8 +36,9 @@
 				height: r(34px)
 				margin-top: r(5px)
 		.wrap-content
-			flex: 1
-			padding: r(40px) r(145px) 0
+			padding: r(40px) r(40px)
+			@screen xl
+				padding: r(150px) r(145px) r(40px)
 			.content-left
 				line-height: 1.25
 			.content-right
@@ -40,6 +47,9 @@
 				column-gap: r(80px)
 				color: #848484
 				position: relative
+				@media (max-width: 575.98px)
+					column-count: 1
+					margin-left: 0
 				&::before
 					content: ''
 					position: absolute
@@ -49,6 +59,10 @@
 					height: 100%
 					transform: translateX(-50%)
 					background-color: #acacac
+					@media (max-width: 575.98px)
+						display: none
 				p
 					break-inside: avoid
 					line-height: 1.3
+					&+p
+						margin-top: r(20px)

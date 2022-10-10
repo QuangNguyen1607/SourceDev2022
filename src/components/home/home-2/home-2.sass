@@ -1,5 +1,8 @@
 .section-home-2
 	position: relative
+	padding: 30px 0
+	@screen xl
+		padding: 0
 	&::before
 		content: ''
 		position: absolute
@@ -11,10 +14,23 @@
 		background-position: left bottom
 		background-repeat: no-repeat
 		pointer-events: none
+		@media (max-width: 575.98px)
+			opacity: .5
 	.content-left
 		.img
 			display: flex
 			align-items: flex-end
+			// justify-content: center
+			width: 100%
+			overflow: hidden
+			// padding: 0 r(100px)
+			@screen lg
+				padding: 0
+				width: auto
+				justify-content: flex-start
+				overflow: hidden
+			@screen xl
+				overflow: visible
 			.edge-building
 				position: relative
 				z-index: 3
@@ -22,19 +38,37 @@
 			.edge-cloud
 				position: absolute
 				mix-blend-mode: color-dodge
-				top: -19%
-				z-index: 1
-				left: -1%
+				@screen lg
+					top: -8%
+					left: -2%
+				@screen xl
+					top: -19%
+					z-index: 1
+					left: -1%
 			.edge-moon
 				position: absolute
 				top: 5%
 				z-index: 2
-				left: 45%
 				mix-blend-mode: hard-light
+				@screen lg
+					max-width: 250px
+					left: 40%
+				@screen xl
+					left: 45%
+					max-width: none
 	.content-right
-		padding-right: r(210px)
+		@apply px-30px
+		@screen lg
+			padding-left: 0
+			padding-right: r(50px)
+		@screen xl
+			padding-right: r(120px)
+		@screen 2xl
+			padding-right: r(210px)
 		.wrap-title
 			position: relative
+			@media (max-width: 575.98px)
+				margin-top: r(30px)
 			.text-147px
 				padding-left: 10px
 			h2
@@ -42,16 +76,32 @@
 				text-align: right
 				font-weight: 400
 				text-transform: uppercase
+				@media (max-width: 1023.98px)
+					font-size: 20px
 		.line-white
 			position: absolute
 			top: calc(100% + 15px)
 			right: 0
+			@media (max-width: 1023.98px)
+				top: 100%
+				&::before
+					width: 170px
+					height: 30px
+					background-size: 100% 100%
+			@media (max-width: 575.98px)
+				top: calc(100% + 5px)
 		.wrap-content
 			margin-top: r(100px)
+			@media (max-width: 1023.98px)
+				margin-top: 50px
 			p
 				line-height: 1.2
 				font-size: r(18px)
+				@media (max-width: 1023.98px)
+					font-size: 12px
 				&+p
 					margin-top: r(20px)
 		.btn-view-more
 			margin-top: r(100px)
+			@media (max-width: 1023.98px)
+				margin-top: 50px

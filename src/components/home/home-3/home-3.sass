@@ -1,27 +1,42 @@
 .section-home-3
 	position: relative
 	z-index: 2
+	padding: 150px 0px 30px
+	@screen xl
+		padding: 0
+	.container
+		@media (max-width: 1300px)
+			max-width: 88%
 	&::before
 		content: ''
 		position: absolute
 		right: 0
+		pointer-events: none
 		background-position: right center
 		background-repeat: no-repeat
 		background-size: cover
-		opacity: .7
+		opacity: .4
 		top: 0
 		width: 80%
 		height: 100%
-		z-index: -1
+		z-index: 2
 		background-image: url('../img/s3-bg-white.svg')
+		@media (max-width: 1023.98px)
+			display: none
 	.content-left
 		padding-right: r(85px)
+		@media (max-width: 1279.98px)
+			padding-right: 30px
+		@media (max-width: 767.98px)
+			padding-right: 0
 		.wrap-title
 			.edge-moon
 				position: absolute
 				bottom: 100%
 				right: 18%
 				mix-blend-mode: overlay
+				@media (max-width: 1279.98px)
+					max-width: 130px
 			.edge-cloud
 				position: absolute
 				bottom: 64%
@@ -34,7 +49,6 @@
 			margin-top: r(20px)
 			line-height: 1.2
 		.wrap-slide
-			height: fit-content
 			margin-top: r(20px)
 			.wrap-slide-swiper
 				&::before
@@ -47,6 +61,8 @@
 					z-index: 2
 					pointer-events: none
 					background: linear-gradient(90deg,#fed48f 0%,transparent)
+					@media (max-width: 575.98px)
+						width: 60%
 			.item-content
 				display: flex
 				padding: r(20px) 0 0
@@ -84,3 +100,14 @@
 		transform: translateY(-50%)
 		height: r(696px)
 		right: r(-170px)
+		@media (max-width: 1300px)
+			right: -60px
+			max-width: r(700px)
+		@media (max-width: 1023.98px)
+			max-width: 450px
+		@media (max-width: 767.98px)
+			position: static
+			transform: none
+			width: 100%
+			margin-top: r(30px)
+			height: auto

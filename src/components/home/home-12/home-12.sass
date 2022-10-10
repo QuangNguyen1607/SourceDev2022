@@ -1,0 +1,35 @@
+.section-home-12
+	.section-swiper
+		@media (max-width: 1279.98px)
+			padding: r(60px) 0px
+	.container
+		@media (max-width: 1300px)
+			max-width: 90%
+	.footer-1
+		.logo
+			@media (max-width: 575.98px)
+				padding: 30px
+				img
+					width: 100%
+	.footer-2
+		margin-top: r(70px)
+		@media (max-width: 575.98px)
+			margin-top: 0
+		.content-left
+			padding-top: r(60px)
+		.box-register-form
+			background: radial-gradient(circle, #E89376, #FDD18C)
+			padding: r(40px) r(125px)
+			@media (max-width: 575.98px)
+				padding: 20px 30px
+			@apply border-2 border-white rounded-xl
+			.wrap-form
+				.form-group
+					&+.form-group
+						margin-top: r(10px)
+					input
+						font-size: r(20px)
+						@apply text-secondary border-b border-secondary border-opacity-60 pb-5px focus:border-primary transition-all duration-300 bg-transparent w-full placeholder:text-secondary outline-none
+			.wrap-btn
+				input
+					@apply border border-primary bg-secondary uppercase text-sm py-5px px-60px rounded-2xl text-primary hover:bg-primary hover:text-white transition-all duration-300 cursor-pointer hover:scale-105

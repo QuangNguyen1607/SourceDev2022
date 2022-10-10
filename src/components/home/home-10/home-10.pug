@@ -1,18 +1,19 @@
-.swiper-slide
-	.section-home-10.section-swiper.bg-gradient
+.swiper-slide.section-home-10
+	.section-swiper.bg-gradient
 		.flex.flex-wrap.h-full
-			div(class="w-5/12")
-				.content-left.flex.items-center.h-screen.bg-white
+			div(class="w-full lg:w-6/12 xl:w-5/12")
+				.content-left.flex.items-center.bg-white(class="py-60px lg:py-0 lg:h-screen")
 					.wrap-center-middle.w-full
 						.wrap-title.w-fit.mx-auto
-							.title-top.flex.items-center.w-fit
-								.number.font-Gilroy.font-black.text-primary.text-172px.leading-none.mr-10px 5
+							.title-top.flex.items-center.w-fit(class="px-15px sm:px-0px")
+								.number.font-Gilroy.font-black.text-primary.leading-none.mr-10px(class="text-140px sm:text-172px") 5
 								.title.flex.items-center.gap-10px
 									.wrap
-										p.text-secondary.font-Gilroy.font-black.text-45px.leading-tight Yếu tố
-										p.text-primary.font-Gilroy.uppercase.text-55px.font-black.leading-none Vàng
-									img(src="./img/s10-logo.png", alt="")
-							.title-bottom.uppercase.text-secondary.text-right.font-bold.text-27px.leading-tight(class='-mt-8') Trở thành khu đô thị
+										p.text-secondary.font-Gilroy.font-black.leading-tight(class="text-45px md:text-45px") Yếu tố
+										p.text-primary.font-Gilroy.uppercase.font-black.leading-none(class="md:text-55px text-50px") Vàng
+									.img.flex-1
+										img(src="./img/s10-logo.png", alt="")
+							.title-bottom.uppercase.text-secondary.text-right.font-bold.text-27px.leading-tight(class='px-15px sm:px-0px md:-mt-4 lg:-mt-8') Trở thành khu đô thị
 								br
 								| hấp dẫn hàng đầu vĩnh long
 						.wrap-quotes.mt-50px
@@ -25,15 +26,16 @@
 													br
 													| ĐỘC ĐÁO
 												.desc.text-18px.text-gray.mt-30px.text-center.text-justify.text-last-center Kiến trúc ấn tượng với cảm hứng từ vùng đất Florida, mang hơi hướng kiến trúc bản địa Mỹ, Art Decor, hài hòa với nét đặc trưng khí hậu và văn hoá vùng Vĩnh Long.
-							.wrap-button-slide-custom.flex.items-center.justify-end.gap-15px
+							.wrap-button-slide-custom.flex.items-center.gap-15px(class="justify-center mt-30px flex-col sm:flex-row sm:mt-0 sm:justify-end")
 								.wrap-active-number-slide.border.border-gray.rounded-lg.w-fit.text-gray.px-15px
 									span.current 3
 									span.seperator /
 									span.total 5
-								.btn.btn-prev.btn-sw-2
-								.btn.btn-next.btn-sw-2
-			div(class="w-7/12")
-				.content-right.h-full
+								.flex.items-center.gap-15px
+									.btn.btn-prev.btn-sw-2
+									.btn.btn-next.btn-sw-2
+			div(class="w-full lg:w-6/12 xl:w-7/12")
+				.content-right(class="lg:h-screen")
 					.swiper
 						.swiper-wrapper
 							-for(i=0;i<5;i++)

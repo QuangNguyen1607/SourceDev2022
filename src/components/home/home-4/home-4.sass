@@ -2,18 +2,32 @@
 	display: flex
 	flex-direction: column
 	justify-content: center
+	padding: r(40px) 0px
 	.wrap-slide
 		border-radius: r(50px)
 		overflow: hidden
 		position: relative
+		@media (max-width: 767.98px)
+			border-radius: 20px
+			margin-top: r(20px)
 	.img
 		+img-ratio(.4)
 		border-radius: r(50px)
 		overflow: hidden
+		@media (max-width: 767.98px)
+			border-radius: 10px
 	.wrap-button-custom
 		.btn-prev,.btn-next
 			position: absolute
 			top: 50%
 			transform: translateY(-50%)
 			z-index: 2
+		.btn-prev
+			left: r(20px)
+			@media (max-width: 767.98px)
+				left: 10px
+		.btn-next
+			right: r(20px)
+			@media (max-width: 767.98px)
+				right: 10px
 

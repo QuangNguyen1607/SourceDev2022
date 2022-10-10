@@ -1,6 +1,6 @@
-.swiper-slide.bg-gradient
-	section.section-swiper.section-home-2
-		.grid(class="lg:grid-cols-2 h-full")
+.swiper-slide.bg-gradient.section-home-2#section-2(data-title="section-2")
+	.section-swiper
+		.wrap-grid-content.grid(class="md:grid-cols-[1.2fr_1fr] lg:grid-cols-[1.2fr_1fr] 2xl:grid-cols-2 h-full")
 			.content-left.flex.items-end
 				.img.relative
 					img(src="./img/s2-moon.png", alt="" class="edge-moon")
@@ -8,14 +8,14 @@
 					img(src="./img/s2-img.png", alt="" class="edge-building")
 			.content-right.flex.flex-col.justify-center
 				.wrap-title.font-Gilroy.leading-none.text-right
-					.font-black.flex.text-secondary.items-center.justify-end
-						.text-50px.leading-none.text-right
+					.font-black.flex.text-secondary.justify-end(class="items-start xl:items-center")
+						.text-1.leading-none.text-right(class="lg:text-50px text-40px")
 							p Biểu Tượng
 							p Thịnh vượng
-						.text-147px.uppercase Mới
+						.uppercase.text-2(class="text-100px lg:text-120px xl:text-147px") Mới
 					h2.text-secondary Ngay trung tâm TP.Vĩnh Long
 					.line-white
-				.wrap-content.text-white.text-20px
+				.wrap-content.text-white(class="lg:text-20px text-sm")
 					p Ngay trung tâm TP. Vĩnh Long, một khu đô thị kiểu mẫu lần đầu tiên xuất hiện với quy mô bậc nhất khu vực, nổi bật với lối kiến trúc biểu tượng kết hợp hệ tiện ích đẳng cấp.
 					p Ngay trung tâm TP. Vĩnh Long, một khu đô thị kiểu mẫu lần đầu tiên xuất hiện với quy mô bậc nhất khu vực, nổi bật với lối kiến trúc biểu tượng kết hợp hệ tiện ích đẳng cấp.
 					p T&T Tamda đang trở thành điểm đến mới để an cư, kinh doanh và đầu tư cho cộng đồng cư dân năng động

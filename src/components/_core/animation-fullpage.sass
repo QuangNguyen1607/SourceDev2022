@@ -1,0 +1,511 @@
+.section-home-1
+	.img-font
+		animation: fade-in-scale .8s .4s both ease-in-out
+	.section-swiper
+		animation: zoom-bg 1s both ease-in-out
+.section-home-2
+	@screen xl
+		.edge-cloud
+			transform: translateX(-40px)
+			opacity: 0
+			transition-delay: 1s
+		.edge-building
+			animation: fade-left-out .5s both ease-in-out
+		.edge-moon
+			animation: fade-left-out .5s both ease-in-out
+		.content-right
+			.wrap-title
+				.font-black
+					.text-1
+						p
+							&:nth-child(1)
+								animation: fade-right-out .5s both ease-in-out
+							&:nth-child(2)
+								animation: fade-right-out .5s both ease-in-out
+					.text-2
+						animation: fade-left-out .5s both ease-in-out
+				h2
+					animation: fade-right-out .5s both ease-in-out
+				.line-white
+					animation: fade-right-out .5s both ease-in-out
+			.wrap-content
+				animation: fade-right-out .5s both ease-in-out
+			.btn-view-more
+				animation: fade-left-out .5s both ease-in-out
+	@media (max-width: 1279.98px)
+		.edge-cloud
+			animation: ani-cloud 3s 1.4s ease-in-out forwards infinite alternate
+	&.swiper-slide-active
+		@screen xl
+			.edge-cloud
+				opacity: 1
+				transition: 1s all ease-in-out
+				transition-delay: .5s
+				transform: none
+				animation: ani-cloud 3s 1.4s ease-in-out forwards infinite alternate
+			.edge-building
+				animation: fade-left 1s 1s both ease-in-out
+			.edge-moon
+				animation: fade-right 1s 1s both ease-in-out
+			.content-right
+				.wrap-title
+					.font-black
+						.text-1
+							p
+								&:nth-child(1)
+									animation: fade-right-40px .5s 1.8s both ease-in-out
+								&:nth-child(2)
+									animation: fade-right-40px .5s 2s both ease-in-out
+						.text-2
+							animation: fade-left-40px .5s 1.5s both ease-in-out
+					h2
+						animation: fade-right-40px .5s 2.2s both ease-in-out
+					.line-white
+						animation: fade-right-40px .5s 2.2s both ease-in-out
+				.wrap-content
+					animation: fade-right-40px .5s 2.4s both ease-in-out
+				.btn-view-more
+					animation: fade-left-40px .5s 2.5s both ease-in-out
+.section-home-3
+	@screen xl
+		.content-left
+			.wrap-title
+				.edge-moon
+					animation: fade-left-out 1s both ease-in-out
+				.edge-cloud
+					animation: fade-left-out 1s both ease-in-out
+				.edge-title
+					animation: fade-left-out .8s both ease-in-out
+			.content
+				animation: fade-left-out 1s both ease-in-out
+			.wrap-slide
+				animation: fade-right-out 1s both ease-in-out
+		.content-right
+			img
+				animation: fade-left-out 1s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.content-left
+				.wrap-title
+					.edge-moon
+						animation: fade-left 1s .8s both ease-in-out
+					.edge-cloud
+						animation: fade-left-40px 1s .5s both ease-in-out
+					.edge-title
+						animation: fade-left .8s 1s both ease-in-out
+				.content
+					animation: fade-left 1s 1.2s both ease-in-out
+				.wrap-slide
+					animation: fade-right 1s 1.2s both ease-in-out
+			.content-right
+				img
+					animation: fade-left 1s 1s both ease-in-out
+.section-home-4
+	@screen xl
+		h1
+			animation: fade-in-scale-out 1s both ease-in-out
+		.wrap-slide
+			animation: fade-top-out 1s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			h1
+				animation: fade-in-scale 1s .4s both ease-in-out
+			.wrap-slide
+				animation: fade-top 1s .6s both ease-in-out
+.section-home-5
+	@screen xl
+		.edge-cloud-left
+			transform: translateX(80px)
+			transition: .5s all ease-in-out
+			opacity: 0
+		.edge-cloud-right
+			transform: translateX(-80px)
+			transition: .5s all ease-in-out
+			opacity: 0
+		.edge-building
+			animation: fade-left-out .5s both ease-in-out
+		.edge-circle
+			animation: blur-out .5s both ease-in-out
+		.content
+			h2
+				animation: fade-right-out .5s both ease-in-out
+			h1
+				animation: fade-right-out .5s both ease-in-out
+			p
+				animation: fade-right-out .5s both ease-in-out
+			.btn-view-more
+				animation: fade-right-out .5s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.edge-building
+				animation: fade-left 1s .6s both ease-in-out
+			.edge-circle
+				animation: blur 1s .3s both ease-in-out
+			.edge-cloud-left
+				transform: none
+				opacity: 1
+				transition: 1s 1s all ease-in-out
+				animation: ani-cloud 3s 2.4s ease-in-out forwards infinite alternate
+			.edge-cloud-right
+				transform: none
+				opacity: 1
+				transition: 1s 1s all ease-in-out
+				animation: ani-cloud 3s 2.4s ease-in-out forwards infinite alternate
+			.content
+				h2
+					animation: fade-right .8s 1s both ease-in-out
+				h1
+					animation: fade-right .8s 1.4s both ease-in-out
+				p
+					animation: fade-right .8s 1.8s both ease-in-out
+				.btn-view-more
+					animation: fade-right .8s 2s both ease-in-out
+.section-home-6
+	@screen xl
+		.edge-cloud-left
+			transform: translateX(-80px)
+			transition: .5s all ease-in-out
+			opacity: 0
+		.edge-cloud-right
+			transform: translateX(80px)
+			transition: .5s all ease-in-out
+			opacity: 0
+		.edge-building
+			animation: fade-right-out .5s both ease-in-out
+		.edge-circle
+			animation: blur-out .5s both ease-in-out
+		.content
+			h2
+				animation: fade-left-out .5s both ease-in-out
+			h1
+				animation: fade-left-out .5s both ease-in-out
+			p
+				animation: fade-left-out .5s both ease-in-out
+			.btn-view-more
+				animation: fade-left-out .5s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.edge-building
+				animation: fade-left 1s .6s both ease-in-out
+			.edge-circle
+				animation: blur 1s .3s both ease-in-out
+			.edge-cloud-left
+				transform: none
+				opacity: 1
+				transition: 1s 1s all ease-in-out
+				animation: ani-cloud 3s 2.4s ease-in-out forwards infinite alternate
+			.edge-cloud-right
+				transform: none
+				opacity: 1
+				transition: 1s 1s all ease-in-out
+				animation: ani-cloud 3s 2.4s ease-in-out forwards infinite alternate
+			.content
+				h2
+					animation: fade-left .8s 1s both ease-in-out
+				h1
+					animation: fade-left .8s 1.4s both ease-in-out
+				p
+					animation: fade-left .8s 1.8s both ease-in-out
+				.btn-view-more
+					animation: fade-left .8s 2s both ease-in-out
+.section-home-7
+	@screen xl
+		.col-left
+			animation: skew-50-left-out 1s both ease-in-out
+		.col-right
+			animation: skew-50-right-out 1s both ease-in-out
+		.col-mid
+			animation: fade-in-scale-out 1s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.col-left
+				animation: skew-50-left 1s .5s both ease-in-out
+			.col-right
+				animation: skew-50-right 1s .5s both ease-in-out
+			.col-mid
+				animation: fade-in-scale 1s .8s both ease-in-out
+.section-home-8
+	@screen xl
+		.img-main-slide
+			animation: fade-in-scale-out 1s both ease-in-out
+		.content-left
+			animation: fade-left-out 1s both ease-in-out
+		.content-right
+			animation: fade-right-out 1s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.img-main-slide
+				animation: fade-in-scale 1s .5s both ease-in-out
+			.content-left
+				animation: fade-left 1s .65s both ease-in-out
+			.content-right
+				animation: fade-right 1s .65s both ease-in-out
+.section-home-9
+	@screen xl
+		.wrap-slide
+			animation: blur-out 1s both ease-in-out
+		.content-left
+			animation: fade-left-out 1s both ease-in-out
+		.content-right
+			animation: fade-right-out 1s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.wrap-slide
+				animation: blur 1s .5s both ease-in-out
+			.content-left
+				animation: fade-left 1s 1.2s both ease-in-out
+			.content-right
+				animation: fade-right 1s 1.2s both ease-in-out
+.section-home-10
+	@screen xl
+		.wrap-title
+			.title-top
+				.number
+					animation: fade-left-out .6s both ease-in-out
+				.title
+					.wrap
+						.text-secondary
+							animation: fade-left-out .6s  both ease-in-out
+						.text-primary
+							animation: fade-left-out .6s  both ease-in-out
+				img
+					animation: fade-right-out .6s both ease-in-out
+			.title-bottom
+				animation: fade-bottom-out .6s  both ease-in-out
+		.wrap-quotes
+			animation: fade-in-scale-out .6s both ease-in-out
+		.content-right
+			.img
+				img
+					animation: fade-left-no-opacity .5s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			.wrap-title
+				.title-top
+					.number
+						animation: fade-left .6s .5s both ease-in-out
+					.title
+						.wrap
+							.text-secondary
+								animation: fade-left .6s .8s both ease-in-out
+							.text-primary
+								animation: fade-left .6s 1s both ease-in-out
+					img
+						animation: fade-right .6s 1.3s both ease-in-out
+				.title-bottom
+					animation: fade-bottom .6s 1.6s both ease-in-out
+			.wrap-quotes
+				animation: fade-in-scale .6s 1.6s both ease-in-out
+			.content-right
+				.img
+					img
+						animation: fade-left-no-opacity .5s .5s both ease-in-out
+.section-home-11
+	@screen xl
+		h1
+			animation: fade-in-scale-out .5s both ease-in-out
+		.wrap-post
+			animation: fade-in-out .5s both ease-in-out
+	&.swiper-slide-active
+		@screen xl
+			h1
+				animation: fade-in-scale .5s .5s both ease-in-out
+			.wrap-post
+				animation: fade-in .5s .8s both ease-in-out
+.section-home-12
+	@screen xl
+	&.swiper-slide-active
+		@screen xl
+			.footer-1
+				.logo
+					animation: fade-left .5s .5s both ease-in-out
+				.content-right
+					img
+						&:nth-child(1)
+							animation: fade-left .5s .8s both ease-in-out
+						&:nth-child(2)
+							animation: fade-left .5s 1s both ease-in-out
+						&:nth-child(3)
+							animation: fade-left .5s 1.2s both ease-in-out
+			.footer-2
+				h2
+					animation: fade-left .5s 1.4s both ease-in-out
+				.hotline
+					animation: fade-left .5s 1.5s both ease-in-out
+				.address
+					animation: fade-left .5s 1.6s both ease-in-out
+				.wrap-social
+					animation: fade-bottom .5s 1.8s both ease-in-out
+			.box-register-form
+				animation: fade-bottom .5s 1.8s both ease-in-out
+			.footer-copyright
+				animation: fade-bottom .5s 2s both ease-in-out
+header
+	.header-logo
+		animation: fade-left .8s .8s both ease-in-out
+	.header-right
+		animation: fade-right .8s .8s both ease-in-out
+@keyframes skew-50-left
+	0%
+		transform: translate(50px,-50px)
+		opacity: 0
+		filter: blur(20px)
+	100%
+		opacity: 1
+		filter: blur(0)
+		transform: none
+@keyframes skew-50-left-out
+	0%
+		opacity: 1
+		filter: blur(0)
+		transform: none
+	100%
+		transform: translate(50px,-50px)
+		opacity: 0
+		filter: blur(20px)
+@keyframes skew-50-right
+	0%
+		transform: translate(-50px,-50px)
+		opacity: 0
+		filter: blur(20px)
+	100%
+		opacity: 1
+		filter: blur(0)
+		transform: none
+@keyframes skew-50-right-out
+	0%
+		opacity: 1
+		filter: blur(0)
+		transform: none
+	100%
+		transform: translate(-50px,-50px)
+		opacity: 0
+		filter: blur(20px)
+@keyframes blur
+	0%
+		opacity: 0
+		filter: blur(20px)
+	100%
+		opacity: 1
+		filter: blur(0px)
+@keyframes blur-out
+	0%
+		filter: blur(0px)
+		opacity: 1
+	100%
+		opacity: 0
+		filter: blur(20px)
+@keyframes fade-left-out
+	0%
+		opacity: 1
+		transform: none
+	100%
+		opacity: 0
+		transform: translateX(-40px)
+
+@keyframes fade-left-40px
+	0%
+		transform: translateX(-40px)
+		opacity: 0
+	100%
+		opacity: 1
+@keyframes fade-right-40px
+	0%
+		transform: translateX(-40px)
+		opacity: 0
+	100%
+		opacity: 1
+@keyframes fade-left
+	0%
+		filter: blur(10px)
+		transform: translateX(-80px)
+		opacity: 0
+	100%
+		filter: blur(0)
+		transform: none
+		opacity: 1
+@keyframes fade-bottom-out
+	0%
+		filter: blur(0)
+		transform: none
+		opacity: 1
+	100%
+		filter: blur(10px)
+		transform: translateY(-40px)
+		opacity: 0
+@keyframes fade-bottom
+	0%
+		filter: blur(10px)
+		transform: translateY(-40px)
+		opacity: 0
+	100%
+		filter: blur(0)
+		transform: none
+		opacity: 1
+@keyframes fade-right
+	0%
+		transform: translateX(80px)
+		filter: blur(10px)
+		opacity: 0
+	100%
+		filter: blur(0)
+		transform: none
+		opacity: 1
+@keyframes fade-right-out
+	0%
+		filter: blur(0)
+		opacity: 1
+		transform: none
+	100%
+		opacity: 0
+		filter: blur(5px)
+		transform: translateX(40px)
+@keyframes fade-in-scale
+	0%
+		opacity: 0
+		filter: blur(5px)
+		transform: translateY(30px) scale(.7)
+	100%
+		filter: blur(0)
+		transform: none
+		opacity: 1
+@keyframes fade-in-scale-out
+	0%
+		filter: blur(0)
+		transform: none
+		opacity: 1
+	100%
+		opacity: 0
+		filter: blur(5px)
+		transform: translateY(30px) scale(.7)
+@keyframes fade-top
+	0%
+		opacity: 0
+		transform: translateY(40px)
+	100%
+		opacity: 1
+		transform: none
+@keyframes fade-top-out
+	0%
+		opacity: 1
+		transform: none
+	100%
+		opacity: 0
+		transform: translateY(40px)
+@keyframes zoom-bg
+	0%
+		opacity: 0
+	100%
+		opacity: 1
+@keyframes ani-cloud
+	0%
+		transform: translateX(0)
+	100%
+		transform: translateX(-40px)
+@keyframes fade-left-no-opacity
+	0%
+		filter: blur(20px)
+		transform: scale(1.1) translateX(-60px)
+	100%
+		filter: blur(0px)
+		transform: none

@@ -1,6 +1,7 @@
-.swiper-slide
-	.section-home-8.section-swiper.bg-gradient
+.swiper-slide.section-home-8
+	.section-swiper.bg-gradient
 		.container.flex.flex-col.justify-center.h-full
+			h1.title.text-secondary.font-Gilroy.font-black.leading-none(class="text-64px lg:text-80px xl:text-100px block xl:hidden text-center") Tiện ích Nội Khu
 			.img-main-slide
 				.swiper
 					.swiper-wrapper
@@ -8,14 +9,14 @@
 							.swiper-slide
 								.img.flex.justify-center
 									img(src="./img/s8-img.png", alt)
-			.wrap-bottom-title.flex.justify-between
-				div(class="w-5/12")
-					h1.title.text-secondary.text-100px.font-Gilroy.font-black.leading-none Tiện ích
+			.wrap-bottom-title.flex.justify-between(class="xl:px-0 px-30px")
+				div(class="content-left w-full xl:w-5/12")
+					h1.title.text-secondary.font-Gilroy.font-black.leading-none(class="text-64px lg:text-80px xl:text-100px xl:block hidden") Tiện ích
 						br
 						| Nội Khu
-				div(class="w-7/12")
-					.wrap-content-main.flex.items-center
-						.wrap-custom-slide.relative.flex.items-center.justify-center.gap-50px.w-fit.mx-auto.mt-40px
+				div(class="content-right w-full xl:w-7/12")
+					.wrap-content-main.flex.items-center(class="md:flex-row flex-col-reverse")
+						.wrap-custom-slide.relative.flex.items-center.justify-center.gap-50px.w-fit.mx-auto(class="xl:mt-40px")
 							.wrap-active-number-slide.border.border-white.rounded-lg.w-fit.text-white.px-15px
 								span.current 3
 								span.seperator /

@@ -3,9 +3,17 @@
 		.swiper
 			height: 100%
 			.img
-				+img-ratio(944/1120)
+				+img-ratio(.4)
 				img
 					object-position: bottom
+				@media (min-width: 1024px)
+					width: 100%
+					height: 100%
+					img
+						height: 100%
+						width: 100%
+						object-fit: cover
+						object-position: bottom
 	.content-left
 		background-image: url('../img/s10-bg-left.png')
 		background-repeat: no-repeat
@@ -16,6 +24,8 @@
 			width: 100%
 			margin: 0 auto
 			margin-top: r(10px)
+			@media (max-width: 575.98px)
+				margin-top: r(30px)
 		.desc
 			text-align-last: center
 		.wrap-quotes
@@ -29,6 +39,8 @@
 					height: 100%
 					z-index: 10
 					background: linear-gradient(90deg, #fff, transparent)
+					@media (max-width: 575.98px)
+						width: 20%
 				&::after
 					content: ''
 					position: absolute
@@ -38,3 +50,8 @@
 					height: 100%
 					z-index: 10
 					background: linear-gradient(270deg, #fff, transparent)
+					@media (max-width: 575.98px)
+						width: 20%
+			.item-quotes
+				@media (max-width: 575.98px)
+					padding: 0 r(60px)
