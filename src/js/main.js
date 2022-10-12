@@ -1,27 +1,27 @@
-$(document).ready(function () {
+jQuery(document).ready(function () {
 	setBackgroundElement();
 	Fullpage.init();
 	Header.init();
 	swiperInit();
 });
 /*==================== Declare Global Variable ====================*/
-var vw = $(window).width();
+var vw = jQuery(window).width();
 /*====================  ====================*/
 const Fullpage = {
 	generateThumbs: function () {
-		const countSlide = $(
+		const countSlide = jQuery(
 			".fullpage-swiper > .swiper > .swiper-wrapper > .swiper-slide"
 		).length;
-		$(".fullpage-swiper > .swiper > .swiper-wrapper > .swiper-slide").each(
-			function (index) {
-				let title = $(this).data("title");
-				$(".fullpage-slide-thumb .swiper-wrapper").append(
-					`<div class="swiper-slide"><div class="item-thumb" data-title="${
-						title || ""
-					}"><span>${index + 1}</span></div></div>`
-				);
-			}
-		);
+		jQuery(
+			".fullpage-swiper > .swiper > .swiper-wrapper > .swiper-slide"
+		).each(function (index) {
+			let title = $(this).data("title");
+			jQuery(".fullpage-slide-thumb .swiper-wrapper").append(
+				`<div class="swiper-slide"><div class="item-thumb" data-title="${
+					title || ""
+				}"><span>${index + 1}</span></div></div>`
+			);
+		});
 	},
 	swiper: function () {
 		var fullpage_thumb = new Swiper(".fullpage-slide-thumb .swiper", {
@@ -67,9 +67,9 @@ const Fullpage = {
 					slideChange: () => {
 						var index = fullpage_main.activeIndex + 1;
 						if (index > 1) {
-							$("header nav").addClass("hidden-header");
+							jQuery("header nav").addClass("hidden-header");
 						} else {
-							$("header nav").removeClass("hidden-header");
+							jQuery("header nav").removeClass("hidden-header");
 						}
 						console.log(
 							"🚀 ~ file: main.js ~ line 65 ~ index",
@@ -88,13 +88,13 @@ const Fullpage = {
 };
 /*==================== Animation loader  ====================*/
 function animationLoader(e) {
-	$("body").addClass("loaded");
+	jQuery("body").addClass("loaded");
 }
 /*==================== Set background ====================*/
 function setBackgroundElement() {
-	$("[setbackground]").each(function () {
+	jQuery("[setbackground]").each(function () {
 		var background = $(this).attr("setbackground");
-		$(this).css({
+		jQuery(this).css({
 			"background-image": "url(" + background + ")",
 			"background-repeat": "no-repeat",
 			"background-size": "cover",
@@ -430,6 +430,3 @@ function swiperInit() {
 		},
 	});
 }
-/*==================== Lazyload JS ====================*/
-const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-observer.observe();
